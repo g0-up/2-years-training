@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Lộ trình CNTT 24 tháng · UpNext</title>
-<meta name="description" content="Chương trình đào tạo nội bộ 24 tháng cho sinh viên năm 2+: Go, TypeScript, Next.js, Flutter. Ba giai đoạn, 1.070 giờ, ba cổng đánh giá bằng sản phẩm thật.">
+<title>Lộ trình đào tạo IT 2 năm · UpNext</title>
+<meta name="description" content="Lộ trình đào tạo IT 24 tháng: Cơ bản học chung, Nâng cao theo 1 hướng chính + 1 hướng phụ (Backend / Frontend / Mobile), Thực hành dự án team từ requirements đến vận hành production.">
 <meta name="theme-color" content="#233c65">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lộ trình đào tạo CNTT 24 tháng">
-<meta property="og:description" content="Ba giai đoạn, 1.070 giờ, ba cổng đánh giá bằng sản phẩm thật. Tiến độ tính theo năng lực chứng minh được, không theo lịch.">
+<meta property="og:title" content="Lộ trình đào tạo IT 2 năm">
+<meta property="og:description" content="Ba chặng Cơ bản, Nâng cao, Thực hành. Git, Linux, Testing, Docker và AI là kỹ năng xuyên suốt, không phải môn tùy chọn.">
 <meta property="og:locale" content="vi_VN">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23233c65'/%3E%3Crect x='7' y='19' width='18' height='6' rx='3' fill='%23f2295b'/%3E%3Crect x='7' y='8' width='11' height='6' rx='3' fill='%23d8e2ec'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
   --space-1:2px; --space-2:6px; --space-3:10px; --space-4:18px; --space-5:24px; --space-6:35px; --space-7:60px; --space-8:100px;
   --radius-sm:3px; --radius-pill:50px;
   --font-sans:"Inter Tight",system-ui,sans-serif; --font-display:Manrope,"Inter Tight",sans-serif; --font-ui:Roboto,Arial,sans-serif;
-  /* derived: mid-navy for phase 2 bars, between navy-700 and surface-blue-100 */
+  /* derived: mid-navy for stage 2 bars, between navy-700 and surface-blue-100 */
   --navy-500:#3d5a8a; --navy-300:#8aa4c8;
   --nav-h:55px;
   color-scheme:light;
@@ -44,8 +44,6 @@ p,ul,ol{margin:0}
 ul,ol{padding:0;list-style:none}
 .wrap{max-width:1170px;margin:0 auto;padding-inline:24px}
 .num{font-variant-numeric:tabular-nums}
-.ic{width:24px;height:24px;flex:none}
-.ic.sm{width:16px;height:16px}
 .skip{position:absolute;left:-9999px;top:8px;z-index:50;background:var(--navy-900);color:#fff;padding:10px 16px;text-decoration:none}
 .skip:focus{left:16px}
 :focus-visible{outline:2px solid var(--navy-700);outline-offset:3px}
@@ -54,11 +52,10 @@ ul,ol{padding:0;list-style:none}
 .eyebrow{font-size:13px;line-height:1.4;letter-spacing:1.3px;text-transform:uppercase;font-weight:500;color:var(--gray-600)}
 h2{font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4.6vw,52px);line-height:1.2;letter-spacing:-.5px}
 h3{font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.3px;color:var(--navy-700)}
+h3 .no{display:block;font-size:12px;line-height:1.4;letter-spacing:1.3px;font-weight:600;color:var(--accent-crimson);margin-bottom:4px}
 
 /* ===== buttons (design-system Button) ===== */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;border:0;cursor:pointer;text-decoration:none;font-family:var(--font-sans);font-size:13px;line-height:13px;font-weight:500;letter-spacing:1.3px;text-transform:uppercase;padding:var(--space-4) var(--space-6);border-radius:var(--radius-pill);transition:filter .2s,background-color .2s,color .2s,box-shadow .2s}
-.btn .ic{width:16px;height:16px;transition:transform .2s}
-.btn:hover .ic{transform:translateX(3px)}
 .btn-primary{color:var(--on-accent);background-color:var(--navy-700);background-image:var(--gradient-accent)}
 .btn-primary:hover{filter:brightness(1.06)}
 .btn-navy{color:var(--surface-0);background:var(--navy-700)}
@@ -77,7 +74,7 @@ h3{font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.3px;color:va
 .wordmark b{font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-.5px;color:var(--navy-900);line-height:1}
 .wordmark span{display:block;font-size:12px;color:var(--gray-600);letter-spacing:.5px;margin-top:4px;line-height:1.2}
 .brand-info{display:flex;gap:32px}
-.info{display:flex;gap:12px;align-items:center;color:var(--slate-600)}
+.info{border-left:2px solid var(--surface-blue-100);padding-left:12px}
 .info b{display:block;font-size:14px;color:var(--navy-900);font-weight:600;line-height:1.3}
 .info span{font-size:13px;color:var(--gray-600);line-height:1.3}
 nav.main{position:sticky;top:0;z-index:20;background:var(--navy-700);box-shadow:0 1px 0 rgba(0,0,0,.08)}
@@ -119,20 +116,22 @@ section.band{background:var(--surface-100)}
 .sec-head{text-align:center;display:grid;gap:12px;margin-bottom:var(--space-7)}
 .sec-head .sub{max-width:66ch;margin:4px auto 0;font-size:17px}
 .card{background:var(--surface-0);box-shadow:var(--shadow-card);padding:var(--space-5)}
-.card > h3 + *{margin-top:12px}
+.card > h3 + *{margin-top:14px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
 .stack-col{display:grid;gap:var(--space-5);align-content:start}
+.mt{margin-top:var(--space-5)}
 .note{padding:14px 18px;background:var(--surface-blue-50);font-size:15px;line-height:1.6;color:var(--navy-700);display:flex;gap:12px}
 .note::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;background:var(--navy-700)}
+.note b{color:var(--navy-900)}
 section.tint .note{background:var(--surface-0);box-shadow:var(--shadow-card)}
-.card .note{margin-top:16px}
+.lead-note{max-width:820px;margin:0 auto var(--space-5)}
 
 /* principles */
-.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5)}
-.pillar{display:grid;gap:14px;align-content:start;padding:28px var(--space-5);transition:box-shadow .2s,transform .2s}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+.pillar{display:grid;gap:14px;align-content:start;padding:28px var(--space-5);position:relative;transition:box-shadow .2s,transform .2s}
+.pillar::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--navy-700)}
 .pillar:hover{box-shadow:var(--shadow-card-strong);transform:translateY(-2px)}
-.pillar .ibox{width:52px;height:52px;display:grid;place-items:center;background:var(--surface-blue-50);color:var(--slate-600)}
-.pillar .ibox .ic{width:26px;height:26px}
 .pillar p{font-size:15px;line-height:1.6}
 
 /* gantt */
@@ -145,25 +144,24 @@ section.tint .note{background:var(--surface-0);box-shadow:var(--shadow-card)}
 .gate-lbl::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:8px;margin-left:-1px;background:var(--accent-crimson)}
 .gate-lbl.last{transform:translateX(-100%)}.gate-lbl.last::after{left:auto;right:0}
 .g-row{min-height:50px;border-bottom:1px dashed var(--surface-blue-100)}
+.g-row.sep{border-top:1px solid var(--gray-200)}
 .lab{font-size:14px;font-weight:600;color:var(--navy-900);line-height:1.3;padding:8px 12px 8px 0}
 .lab small{display:block;font-weight:400;color:var(--gray-600);font-size:12px;margin-top:2px}
 .g-track{position:relative;height:50px}
-.g-track .rv{position:absolute;top:0;bottom:0;border-left:1px dotted var(--slate-600);opacity:.55}
 .g-track .gl{position:absolute;top:0;bottom:0;border-left:2px solid var(--accent-crimson)}
-.g-track .gl:last-of-type{margin-left:-2px}
+.g-track .gl.end{margin-left:-2px}
 .bar{position:absolute;top:12px;height:26px;background:var(--navy-700);color:#fff;font-size:12px;line-height:26px;font-weight:500;padding:0 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1}
 .bar.p2{background:var(--navy-500)}.bar.p3{background:var(--navy-900)}
 .bar.lite{background:var(--surface-blue-100);color:var(--navy-900)}
-.bar.mvp{background:var(--gradient-accent);color:#fff;font-weight:700;padding:0;text-align:center;text-overflow:clip}
+.bar.mid{background:var(--navy-300);color:var(--navy-900)}
 .legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:13px;color:var(--gray-600)}
 .legend span{display:inline-flex;align-items:center;gap:8px}
 .legend i{display:inline-block;width:14px;height:14px}
 
-/* phases */
+/* stage cards */
 .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5);margin-top:var(--space-7)}
 .phase{display:flex;flex-direction:column;gap:14px;position:relative;padding-top:30px}
 .phase .btn{margin-top:auto}
-.phase .gate{margin-bottom:6px}
 .phase .idx{position:absolute;top:-1px;left:0;right:0;height:4px;background:var(--navy-700)}
 .phase:nth-child(2) .idx{background:var(--navy-500)}.phase:nth-child(3) .idx{background:var(--navy-900)}
 .phase .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
@@ -171,31 +169,9 @@ section.tint .note{background:var(--surface-0);box-shadow:var(--shadow-card)}
 .phase .hrs{font-size:32px;line-height:1;font-weight:600;color:var(--navy-900);font-variant-numeric:tabular-nums}
 .phase .hrs small{font-size:13px;color:var(--gray-600);font-weight:400}
 .phase .out{font-size:15px;line-height:1.6}
-.hbar{display:flex;height:10px;background:var(--surface-100);gap:2px}
-.hbar i{display:block;height:100%}
-.hbar-key{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--gray-600)}
-.hbar-key span::before{content:"";display:inline-block;width:8px;height:8px;margin-right:5px;background:var(--c)}
-.phase .gate{display:flex;gap:10px;border-top:1px solid var(--gray-200);padding-top:14px;font-size:14px;line-height:1.5}
+.phase .gate{display:flex;gap:10px;border-top:1px solid var(--gray-200);padding-top:14px;margin-bottom:6px;font-size:14px;line-height:1.5}
 .phase .gate b{color:var(--navy-900)}
 .gate-dot{flex:none;width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--gradient-accent)}
-
-/* hour rows */
-.hr{display:grid;grid-template-columns:minmax(150px,210px) 1fr 56px;gap:16px;align-items:start;padding:13px 0;border-bottom:1px solid var(--surface-100)}
-.hr:last-child{border-bottom:0}
-.hr .t{font-weight:600;color:var(--navy-900);font-size:15px;line-height:1.45}
-.ph{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.5px;padding:1px 5px;margin-right:7px;vertical-align:2px;background:var(--surface-blue-100);color:var(--navy-700)}
-.ph.s2{background:var(--navy-700);color:#fff}
-.hr .d{font-size:14px;line-height:1.55;color:var(--gray-600)}
-.meter{height:4px;background:var(--surface-100);margin-top:9px}
-.meter i{display:block;height:100%;background:var(--navy-700)}
-.hr .h{text-align:right;font-weight:600;color:var(--navy-900);line-height:1.2}
-.hr .h .num{display:block;font-size:18px}
-.hr .h small{font-size:11px;font-weight:400;color:var(--gray-600)}
-
-/* facts */
-.facts li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--surface-100);font-size:15px;line-height:1.55}
-.facts li:last-child{border-bottom:0}
-.facts b{color:var(--navy-900);font-weight:600}
 
 /* tables -> cards on mobile */
 .tbl{box-shadow:var(--shadow-card);background:var(--surface-0)}
@@ -204,12 +180,6 @@ th{font-family:var(--font-ui);font-size:12px;letter-spacing:.5px;text-transform:
 td{padding:15px 18px;border-bottom:1px solid var(--surface-100);vertical-align:top}
 tr:last-child td{border-bottom:0}
 td:first-child{font-weight:600;color:var(--navy-900)}
-td.r,th.r{text-align:right}
-tr.is-gate td{background:#fbfcfe}
-tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
-.pill{display:inline-block;font-size:11px;line-height:16px;padding:1px 9px;border-radius:var(--radius-pill);font-weight:600;letter-spacing:.5px;vertical-align:1px;margin-left:6px;white-space:nowrap}
-.pill.g{background:var(--navy-900);color:#fff}
-.pill.r{background:var(--surface-blue-100);color:var(--navy-700)}
 
 /* tabs */
 .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
@@ -217,57 +187,32 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
 .tab:hover{background:var(--surface-blue-50)}
 .tab[aria-selected="true"]{background:var(--navy-700);color:#fff}
 .spec{padding:28px}
-.spec-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--surface-100);margin-bottom:12px}
-.spec-sum div{background:var(--surface-0);padding:4px 0 14px}
-.spec-sum div + div{padding-left:20px}
-.spec-sum span{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-600)}
-.spec-sum b{font-size:32px;line-height:1.1;font-weight:600;color:var(--navy-900)}
-.spec-sum b small{font-size:13px;font-weight:400;color:var(--gray-600)}
+.spec .no{display:block;font-size:12px;line-height:1.4;letter-spacing:1.3px;font-weight:600;color:var(--accent-crimson);margin-bottom:10px;text-transform:uppercase}
 
-/* steps */
-.steps{display:grid;gap:16px;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;font-size:15px;line-height:1.55;padding-top:6px}
-.steps li::before{content:counter(s);width:36px;height:36px;margin-top:-6px;display:grid;place-items:center;background:var(--navy-700);color:#fff;font-weight:600;font-size:14px;border-radius:50%}
-
+/* lists */
 .checks{display:grid;gap:12px}
 .checks li{display:grid;grid-template-columns:20px 1fr;gap:12px;font-size:15px;line-height:1.55}
 .checks li::before{content:"";width:10px;height:10px;margin-top:8px;background:var(--navy-700)}
+.checks b{color:var(--navy-900);font-weight:600}
+.checks.two{grid-template-columns:1fr 1fr;gap:12px 32px}
 
-/* AI ramp */
-.ai-ramp{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5);position:relative}
-.ai-step{background:var(--surface-0);box-shadow:var(--shadow-card);padding:var(--space-5);display:grid;gap:14px;align-content:start}
-.ai-lvl{display:flex;gap:4px;align-items:flex-end;height:22px}
-.ai-lvl i{width:10px;background:var(--surface-blue-100)}
-.ai-lvl i:nth-child(1){height:7px}.ai-lvl i:nth-child(2){height:12px}.ai-lvl i:nth-child(3){height:17px}.ai-lvl i:nth-child(4){height:22px}
-.ai-lvl i.on{background:var(--navy-700)}
-.ai-when{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-600)}
-.ai-step h3{font-size:18px;line-height:1.3;margin-top:-6px}
-.ai-k{display:grid;grid-template-columns:16px 1fr;gap:10px;font-size:14px;line-height:1.5;border-top:1px solid var(--surface-100);padding-top:12px}
-.ai-k .ic{margin-top:3px}
-.ai-k b{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:2px}
-.ai-k.yes .ic,.ai-k.yes b{color:var(--navy-700)}
-.ai-k.no .ic{color:var(--accent-crimson)}.ai-k.no b{color:var(--navy-900)}
-.ai-k.ctl .ic,.ai-k.ctl b{color:var(--slate-600)}
+/* outcomes */
+.outcome{position:relative;overflow:hidden;padding:28px}
+.outcome::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--gradient-accent)}
+.outcome .k{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600;color:var(--accent-crimson)}
+.outcome h3{margin-top:6px}
+.outcome .checks li::before{border-radius:50%;background:var(--gradient-accent)}
 
-/* gates */
-.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5);margin-bottom:var(--space-5)}
-.gate-card{position:relative;padding:28px var(--space-5);display:grid;gap:12px;align-content:start;overflow:hidden}
-.gate-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--gradient-accent)}
-.gate-card .when{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-.gate-card .when b{font-family:var(--font-display);font-size:28px;line-height:1;color:var(--navy-900)}
-.gate-card .k{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--gray-600);margin-bottom:2px}
-.gate-card p{font-size:15px;line-height:1.55}
-.gate-card .form{color:var(--navy-700);font-weight:600}
-
-/* operations */
-.rhythm{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5)}
-.rhythm .card{display:grid;gap:10px;align-content:start}
-.rhythm .card .ic{color:var(--slate-600)}
-.rhythm b{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-600);font-weight:500}
-.rhythm p{font-size:15px;line-height:1.55;color:var(--gray-800)}
-.decisions{display:grid;grid-template-columns:1fr 1fr;gap:14px 32px}
-.decisions li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;line-height:1.5;color:var(--gray-800)}
-.decisions .ic{color:var(--navy-700);margin-top:2px;width:18px;height:18px}
+/* cross-cutting skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5)}
+.skill{background:var(--surface-0);box-shadow:var(--shadow-card);padding:var(--space-5);display:grid;gap:12px;align-content:start}
+.skill-lvl{display:flex;gap:4px;align-items:flex-end;height:22px}
+.skill-lvl i{width:10px;background:var(--surface-blue-100)}
+.skill-lvl i:nth-child(1){height:10px}.skill-lvl i:nth-child(2){height:16px}.skill-lvl i:nth-child(3){height:22px}
+.skill-lvl i.on{background:var(--navy-700)}
+.skill h3{font-size:18px;line-height:1.3}
+.stage{font-size:14px;line-height:1.5;border-top:1px solid var(--surface-100);padding-top:12px}
+.stage b{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--navy-700);margin-bottom:2px}
 
 /* closing CTA */
 .cta{background:var(--gradient-navy);color:#fff;padding-block:88px}
@@ -275,7 +220,6 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
 .cta h2{color:#fff}
 .cta p{color:#dfe6f0;font-size:17px;margin-top:14px;max-width:56ch}
 .cta .hero-cta{justify-content:flex-end;margin-top:0}
-
 
 /* reveal (progressive: only hidden when JS + motion allowed) */
 @media (prefers-reduced-motion:no-preference){
@@ -288,23 +232,23 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
   .brand-info .info:nth-child(2){display:none}
   .hero .wrap{grid-template-columns:1fr;gap:44px;padding-block:72px 80px}
   .hero-art{display:none}
-  .pillars,.ai-ramp,.rhythm{grid-template-columns:1fr 1fr}
-  .gates{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .grid3{grid-template-columns:1fr 1fr}
   .cta .wrap{grid-template-columns:1fr}
   .cta .hero-cta{justify-content:flex-start}
 }
 @media (max-width:900px){
-  .phases,.grid2{grid-template-columns:1fr}
-  .decisions{grid-template-columns:1fr}
+  .phases,.grid2,.pillars{grid-template-columns:1fr}
+  .checks.two{grid-template-columns:1fr}
   /* gantt: labels above bars, no horizontal scroll */
   .g-axis,.g-row{grid-template-columns:1fr}
   .g-axis > div:first-child{display:none}
   .g-row{border-bottom:0;padding-top:6px}
+  .g-row.sep{border-top:0}
   .lab{padding:0;display:flex;gap:8px;align-items:baseline}
   .lab small{display:inline;margin:0}
   .g-track{height:38px;border-bottom:1px dashed var(--surface-blue-100)}
   .bar{top:6px}
-  .ticks span.minor{display:none}
   .bar span{display:none}
 }
 @media (max-width:720px){
@@ -312,14 +256,9 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
   section{padding-block:64px}
   .sec-head{margin-bottom:40px}
   .brand-info{display:none}
-  .pillars,.ai-ramp,.rhythm{grid-template-columns:1fr}
+  .skills,.grid3{grid-template-columns:1fr}
   .stat{padding:20px 18px}.stat b{font-size:36px}
-  .hr{grid-template-columns:1fr 48px;gap:6px 12px}
-  .hr .d{grid-column:1/-1;grid-row:2}
-  .facts li{grid-template-columns:1fr;gap:2px}
-  .spec{padding:var(--space-5) 18px}
-  .spec-sum b{font-size:24px}
-  .spec-sum div + div{padding-left:12px}
+  .spec,.outcome{padding:var(--space-5) 18px}
   .tab{flex:1 1 auto;padding:14px 18px}
   .btn{width:100%}
   .hero-cta{flex-direction:column}
@@ -330,35 +269,31 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
   thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   tr{background:var(--surface-0);box-shadow:var(--shadow-card);margin-bottom:14px;padding:6px 0}
   td{border:0;padding:6px 18px;display:grid;grid-template-columns:96px 1fr;gap:10px}
-  td.r{text-align:left}
   td::before{content:attr(data-label);font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-600);padding-top:3px}
   td:first-child{font-size:16px}
-  tr.is-gate td{background:transparent}
-  tr.is-gate{box-shadow:var(--shadow-card),inset 3px 0 0 var(--accent-crimson)}
-  tr.is-gate td:first-child{box-shadow:none}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#noi-dung">Bỏ qua đến nội dung</a>
 
-<div class="util"><div class="wrap"><span>Chương trình đào tạo nội bộ · bản 28/09/2026</span><span>Tổng hợp từ tài liệu “Lộ trình đào tạo CNTT 24 tháng”</span></div></div>
+<div class="util"><div class="wrap"><span>Chương trình đào tạo nội bộ · bản 05/10/2026</span><span>Tổng hợp từ tài liệu “Lộ trình đào tạo IT — 2 năm”</span></div></div>
 
 <div class="brand"><div class="wrap">
-  <a class="wordmark" href="#top" aria-label="Lộ trình CNTT 24 tháng, về đầu trang">
+  <a class="wordmark" href="#top" aria-label="Lộ trình IT 2 năm, về đầu trang">
     <svg class="mk" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" fill="#233c65"/><rect x="7" y="9" width="13" height="6" rx="3" fill="#d8e2ec"/><rect x="7" y="21" width="22" height="6" rx="3" fill="#f2295b"/></svg>
-    <div><b>Lộ trình CNTT</b><span>24 tháng · 3 giai đoạn · 3 cổng</span></div>
+    <div><b>Lộ trình IT</b><span>24 tháng · 3 chặng</span></div>
   </a>
   <div class="brand-info">
-    <div class="info"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg><div><b>Sinh viên năm 2+</b><span>đã học lập trình cơ bản và OOP</span></div></div>
-    <div class="info"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>12 giờ/tuần</b><span>~50 giờ/tháng</span></div></div>
-    <div class="info"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg><div><b>Mentor toàn thời gian</b><span>5–6 học viên/mentor</span></div></div>
+    <div class="info"><b>Học chung tháng 1–8</b><span>nền tảng và công cụ</span></div>
+    <div class="info"><b>1 hướng chính + 1 hướng phụ</b><span>Backend / Frontend / Mobile</span></div>
+    <div class="info"><b>Dự án team 3–5 người</b><span>tháng 18–24</span></div>
   </div>
 </div></div>
 
 <nav class="main" aria-label="Mục lục"><div class="wrap">
-  <div class="nav-scroll"><a href="#tong-quan">Tổng quan</a><a href="#lo-trinh">Lộ trình</a><a href="#gd1">Giai đoạn 1</a><a href="#chuyen-sau">Chuyên sâu</a><a href="#gd2">Giai đoạn 2</a><a href="#gd3">Giai đoạn 3</a><a href="#ai">Chính sách AI</a><a href="#danh-gia">Đánh giá</a><a href="#van-hanh">Vận hành</a></div>
-  <a class="btn-outline" href="#danh-gia">Xem 3 cổng</a>
+  <div class="nav-scroll"><a href="#tong-quan">Tổng quan</a><a href="#lo-trinh">Lộ trình</a><a href="#chang-1">Chặng 1 · Cơ bản</a><a href="#chang-2">Chặng 2 · Nâng cao</a><a href="#chang-3">Chặng 3 · Thực hành</a><a href="#xuyen-suot">Kỹ năng xuyên suốt</a></div>
+  <a class="btn-outline" href="#lo-trinh">Xem lộ trình</a>
 </div></nav>
 
 <main id="noi-dung">
@@ -371,288 +306,274 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
   </svg>
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">Chương trình đào tạo nội bộ · Go · TypeScript · Next.js · Flutter</p>
-      <h1>Lộ trình đào tạo CNTT <em>24 tháng</em></h1>
-      <p class="lead">Ba giai đoạn, mỗi giai đoạn kết thúc bằng một cổng đánh giá bằng sản phẩm thật. Học viên chỉ lên giai đoạn sau khi qua cổng; tiến độ tính theo năng lực chứng minh được, không theo lịch.</p>
+      <p class="eyebrow">Chương trình đào tạo nội bộ · Golang · ReactJS · Flutter</p>
+      <h1>Lộ trình đào tạo IT <em>2 năm</em></h1>
+      <p class="lead">Chặng Cơ bản học chung toàn bộ. Từ chặng Nâng cao, học viên chọn 1 hướng chính và 1 hướng phụ thay vì học dàn trải cả ba. Chặng cuối làm dự án theo team như môi trường thật, từ lấy requirements đến vận hành sau khi lên production.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#lo-trinh">Xem lộ trình <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#danh-gia">Cơ chế đánh giá</a>
+        <a class="btn btn-primary" href="#lo-trinh">Xem lộ trình</a>
+        <a class="btn btn-ghost" href="#xuyen-suot">Kỹ năng xuyên suốt</a>
       </div>
-      <div class="hero-meta"><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">Người dùng thật</span></div>
+      <div class="hero-meta"><span class="chip">Git</span><span class="chip">Linux</span><span class="chip">Testing</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">AI</span></div>
     </div>
     <div class="stats reveal">
-      <div class="stat"><b>24</b><span>tháng, chia 3 giai đoạn</span></div>
-      <div class="stat"><b class="num">1.070</b><span>giờ học · ~12 giờ/tuần</span></div>
-      <div class="stat"><b>7</b><span>mốc đánh giá bằng sản phẩm hoặc thao tác trực tiếp</span></div>
-      <div class="stat gate"><b>3</b><span>cổng bắt buộc: tháng 7 · 16 · 24</span></div>
+      <div class="stat"><b>24</b><span>tháng, chia 3 chặng</span></div>
+      <div class="stat"><b>3</b><span>hướng chuyên môn: Backend, Frontend, Mobile</span></div>
+      <div class="stat"><b>1+1</b><span>1 hướng chính học đầy đủ, 1 hướng phụ học phần cốt lõi</span></div>
+      <div class="stat gate"><b>3–5</b><span>người mỗi team ở dự án tốt nghiệp</span></div>
     </div>
   </div>
 </header>
 
 <section id="tong-quan"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Cách chương trình vận hành</p><h2>Học bằng sản phẩm, lên cấp bằng năng lực</h2></header>
+  <header class="sec-head reveal"><p class="eyebrow">Nguyên tắc thiết kế</p><h2>Học sâu một hướng, dùng công cụ thật từ ngày đầu</h2></header>
   <div class="pillars">
-    <article class="card pillar reveal"><div class="ibox"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l4-4"/><path d="M3.3 16a9 9 0 1 1 17.4 0"/><circle cx="12" cy="14" r="1.2"/></svg></div><h3>Tiến độ theo năng lực</h3><p>Chỉ lên giai đoạn sau khi qua cổng. Tiến độ tính theo năng lực chứng minh được, không theo lịch.</p></article>
-    <article class="card pillar reveal"><div class="ibox"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><h3>Một đề bài xuyên suốt</h3><p>Bài thực hành của mọi khối làm trên cùng một đề bài của nhóm, nên đến tháng 7 các phần ghép lại thành MVP.</p></article>
-    <article class="card pillar reveal"><div class="ibox"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></div><h3>Bắt buộc có người dùng thật</h3><p>Đề bài là sản phẩm nội bộ hoặc nhóm tự chọn. Không có người dùng thì dự án chỉ còn là bài tập.</p></article>
-    <article class="card pillar reveal"><div class="ibox"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.2 2.3 2.3 1.2-2.3 1.2L12 15.5l-1.2-2.3L8.5 12l2.3-1.2z"/></svg></div><h3>AI mở dần theo năng lực</h3><p>Người chưa tự viết được code thì không đánh giá được code do AI viết, nên càng về sau càng được dùng nhiều.</p></article>
+    <article class="card pillar reveal"><h3>Chọn hướng thay vì dàn trải</h3><p>Chặng Cơ bản học chung toàn bộ. Từ chặng Nâng cao, học viên chọn 1 hướng chính và 1 hướng phụ trong Backend, Frontend, Mobile thay vì học dàn trải cả ba.</p></article>
+    <article class="card pillar reveal"><h3>AI từ ngày đầu</h3><p>AI được dùng làm công cụ học tập ngay từ ngày đầu, và trở thành công cụ phát triển phần mềm ở chặng Nâng cao.</p></article>
+    <article class="card pillar reveal"><h3>Kỹ năng xuyên suốt, không tùy chọn</h3><p>Git, Linux, Testing, Docker là kỹ năng xuyên suốt cả chương trình, không phải môn tùy chọn.</p></article>
   </div>
 
-  <div class="grid2" style="margin-top:var(--space-5)">
-    <div class="card reveal"><h3>Giả định vận hành</h3>
-      <ul class="facts">
-        <li><b>Học viên</b><span>Sinh viên năm 2 trở lên, đã học lập trình cơ bản và OOP.</span></li>
-        <li><b>Thời lượng</b><span>12 giờ/tuần (~50 giờ/tháng); mùa thi giảm còn ~5 giờ/tuần, đã tính vào khoảng dư.</span></li>
-        <li><b>Công nghệ</b><span>Go, TypeScript, React/Next.js, Flutter; PostgreSQL, Docker, GitHub Actions.</span></li>
-        <li><b>Đề bài</b><span>Sản phẩm nội bộ hoặc nhóm tự chọn, bắt buộc có người dùng thật. Mentor toàn thời gian.</span></li>
-      </ul>
-    </div>
-    <div class="card reveal"><h3>Cơ cấu 1.070 giờ</h3><ul class="hr-list"><li class="hr"><div class="t">Nền tảng + cơ bản (F, C)</div><div class="d">Cả khoá học chung<div class="meter" aria-hidden="true"><i style="width:55.38%"></i></div></div><div class="h"><span class="num">180</span><small>giờ</small></div></li><li class="hr"><div class="t">Chuyên sâu S1 + S2</div><div class="d">Theo 1 trong 3 chuyên ngành<div class="meter" aria-hidden="true"><i style="width:75.38%"></i></div></div><div class="h"><span class="num">245</span><small>giờ</small></div></li><li class="hr"><div class="t">Lý thuyết GĐ2 + GĐ3</div><div class="d">Yêu cầu, vận hành, kiến trúc, AI<div class="meter" aria-hidden="true"><i style="width:98.46%"></i></div></div><div class="h"><span class="num">320</span><small>giờ</small></div></li><li class="hr"><div class="t">Dự án thực tế (MVP, GĐ2, GĐ3)</div><div class="d">45 + 160 + 120 giờ<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">325</span><small>giờ</small></div></li></ul></div>
-  </div>
+  <div class="tbl reveal mt"><table>
+    <thead><tr><th>Chặng</th><th>Thời gian</th><th>Trọng tâm</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Chặng">Cơ bản</td><td data-label="Thời gian">Tháng 1–8</td><td data-label="Trọng tâm">Nền tảng + công cụ, học chung</td></tr>
+      <tr><td data-label="Chặng">Nâng cao</td><td data-label="Thời gian">Tháng 9–17</td><td data-label="Trọng tâm">Chuyên sâu 1 hướng chính + 1 hướng phụ</td></tr>
+      <tr><td data-label="Chặng">Thực hành</td><td data-label="Thời gian">Tháng 18–24</td><td data-label="Trọng tâm">Dự án team end-to-end, deploy và vận hành</td></tr>
+    </tbody></table></div>
 </div></section>
 
 <section id="lo-trinh" class="band"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Tổng quan · 24 tháng</p><h2>Roadmap 24 tháng</h2><p class="sub">11 khối học trên một trục thời gian. Đường đỏ là cổng chuyển giai đoạn, đường chấm là mốc review của mentor.</p></header>
-  <div class="card reveal" style="padding:28px"><div class="gantt" role="img" aria-label="Biểu đồ 24 tháng: 7 khối học, 3 cổng tại tháng 7, 16 và 24"><div class="g-axis" aria-hidden="true"><div></div><div class="ticks"><span class=" first" style="left:0%">T0</span><span class="minor" style="left:8.3333%">T2</span><span class="minor" style="left:16.6667%">T4</span><span class="" style="left:25%">T6</span><span class="minor" style="left:33.3333%">T8</span><span class="minor" style="left:41.6667%">T10</span><span class="" style="left:50%">T12</span><span class="minor" style="left:58.3333%">T14</span><span class="minor" style="left:66.6667%">T16</span><span class="" style="left:75%">T18</span><span class="minor" style="left:83.3333%">T20</span><span class="minor" style="left:91.6667%">T22</span><span class=" last" style="left:100%">T24</span><b class="gate-lbl" style="left:29.1667%">Cổng 1</b><b class="gate-lbl" style="left:66.6667%">Cổng 2</b><b class="gate-lbl last" style="left:100%">Cổng 3</b></div></div><div class="g-row"><div class="lab">F. Nền tảng<small>60 giờ</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar p1" style="left:0%;width:calc(4.1667% - 3px)"><span>F</span></div></div></div><div class="g-row"><div class="lab">C. Cơ bản 3 mảng<small>120 giờ</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar lite" style="left:4.1667%;width:calc(10.4167% - 3px)"><span>3 mảng</span></div></div></div><div class="g-row"><div class="lab">S1. Chuyên sâu 1<small>125 giờ</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar p1" style="left:14.5833%;width:calc(10.4167% - 3px)"><span>S1</span></div></div></div><div class="g-row"><div class="lab">MVP sprint<small>45 giờ</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar mvp" style="left:25%;width:calc(4.1667% - 3px)"><span>MVP</span></div></div></div><div class="g-row"><div class="lab">S2. Chuyên sâu 2<small>120 giờ</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar p1" style="left:29.1667%;width:calc(12.5% - 3px)"><span>S2</span></div></div></div><div class="g-row"><div class="lab">Giai đoạn 2<small>300 giờ · 160 dự án</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar p2" style="left:41.6667%;width:calc(25% - 3px)"><span>Yêu cầu → PRD → production</span></div></div></div><div class="g-row"><div class="lab">Giai đoạn 3<small>300 giờ · 120 dự án</small></div><div class="g-track"><i class="rv" style="left:4.1667%"></i><i class="rv" style="left:14.5833%"></i><i class="rv" style="left:25%"></i><i class="rv" style="left:41.6667%"></i><i class="gl" style="left:29.1667%"></i><i class="gl" style="left:66.6667%"></i><i class="gl" style="left:100%"></i><div class="bar p3" style="left:66.6667%;width:calc(33.3333% - 3px)"><span>Kiến trúc · tải · ADR · IDP</span></div></div></div></div>
+  <header class="sec-head reveal"><p class="eyebrow">Tổng quan · 24 tháng</p><h2>Roadmap 24 tháng</h2><p class="sub">Ba chặng trên một trục thời gian, kèm cách các kỹ năng xuyên suốt nâng cấp qua từng chặng. Đường đỏ là mốc đầu ra cuối mỗi chặng.</p></header>
+  <div class="card reveal" style="padding:28px">
+    <div class="gantt" role="img" aria-label="Biểu đồ 24 tháng: Cơ bản tháng 1–8, Nâng cao tháng 9–17, Thực hành tháng 18–24; Git, AI, Testing nâng cấp qua từng chặng">
+      <div class="g-axis" aria-hidden="true"><div></div><div class="ticks">
+        <span class="first" style="left:0%">T1</span><span style="left:33.3333%">T9</span><span style="left:70.8333%">T18</span><span class="last" style="left:100%">T24</span>
+        <b class="gate-lbl" style="left:33.3333%">Đầu ra 1</b><b class="gate-lbl" style="left:70.8333%">Đầu ra 2</b><b class="gate-lbl last" style="left:100%">Tốt nghiệp</b>
+      </div></div>
+      <div class="g-row"><div class="lab">Chặng 1 · Cơ bản<small>tháng 1–8</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:70.8333%"></i><i class="gl end" style="left:100%"></i><div class="bar" style="left:0%;width:calc(33.3333% - 3px)"><span>Học chung</span></div></div></div>
+      <div class="g-row"><div class="lab">Chặng 2 · Nâng cao<small>tháng 9–17</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:70.8333%"></i><i class="gl end" style="left:100%"></i><div class="bar p2" style="left:33.3333%;width:calc(37.5% - 3px)"><span>1 hướng chính + 1 hướng phụ</span></div></div></div>
+      <div class="g-row"><div class="lab">Chặng 3 · Thực hành<small>tháng 18–24</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:70.8333%"></i><i class="gl end" style="left:100%"></i><div class="bar p3" style="left:70.8333%;width:calc(29.1667% - 3px)"><span>Dự án team 3–5 người</span></div></div></div>
+      <div class="g-row sep"><div class="lab">Git<small>xuyên suốt</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:70.8333%"></i><i class="gl end" style="left:100%"></i><div class="bar lite" style="left:0%;width:calc(70.8333% - 3px)"><span>Cá nhân</span></div><div class="bar mid" style="left:70.8333%;width:calc(29.1667% - 3px)"><span>Workflow team</span></div></div></div>
+      <div class="g-row"><div class="lab">AI<small>xuyên suốt</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:70.8333%"></i><i class="gl end" style="left:100%"></i><div class="bar lite" style="left:0%;width:calc(33.3333% - 3px)"><span>Công cụ học</span></div><div class="bar mid" style="left:33.3333%;width:calc(37.5% - 3px)"><span>Công cụ phát triển</span></div><div class="bar" style="left:70.8333%;width:calc(29.1667% - 3px)"><span>Có kiểm soát trong team</span></div></div></div>
+      <div class="g-row"><div class="lab">Testing &amp; Debugging<small>xuyên suốt</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:70.8333%"></i><i class="gl end" style="left:100%"></i><div class="bar lite" style="left:0%;width:calc(33.3333% - 3px)"><span>Thói quen</span></div><div class="bar" style="left:33.3333%;width:calc(66.6667% - 3px)"><span>Bắt buộc trong mọi bài tập lớn</span></div></div></div>
+    </div>
     <div class="legend">
-      <span><i style="background:var(--navy-700)"></i>Giai đoạn 1</span>
-      <span><i style="background:var(--surface-blue-100)"></i>Cơ bản 3 mảng</span>
-      <span><i style="background:var(--navy-500)"></i>Giai đoạn 2</span>
-      <span><i style="background:var(--navy-900)"></i>Giai đoạn 3</span>
-      <span><i style="background:var(--gradient-accent)"></i>MVP sprint</span>
-      <span><i style="width:2px;background:var(--accent-crimson)"></i>Cổng</span>
-      <span><i style="width:0;border-left:1px dotted var(--slate-600)"></i>Review</span>
+      <span><i style="background:var(--navy-700)"></i>Chặng 1</span>
+      <span><i style="background:var(--navy-500)"></i>Chặng 2</span>
+      <span><i style="background:var(--navy-900)"></i>Chặng 3</span>
+      <span><i style="background:var(--surface-blue-100)"></i>Kỹ năng mức nhập môn</span>
+      <span><i style="background:var(--navy-300)"></i>Kỹ năng mức nâng cao</span>
+      <span><i style="width:2px;background:var(--accent-crimson)"></i>Mốc đầu ra</span>
     </div>
   </div>
 
   <div class="phases">
     <article class="card phase reveal"><span class="idx"></span>
-      <div class="top"><span class="tag">Tháng 0–10</span><span class="hrs">470<small> giờ</small></span></div>
-      <h3>Nền tảng và thực hành</h3>
-      <div class="hbar" role="img" aria-label="F 60, C 120, S1 125, MVP 45, S2 120 giờ"><i style="width:12.8%;background:var(--surface-blue-100)"></i><i style="width:25.5%;background:var(--navy-300)"></i><i style="width:26.6%;background:var(--navy-700)"></i><i style="width:9.6%;background:var(--accent-crimson)"></i><i style="width:25.5%;background:var(--navy-900)"></i></div>
-      <div class="hbar-key" aria-hidden="true"><span style="--c:var(--surface-blue-100)">F 60</span><span style="--c:var(--navy-300)">C 120</span><span style="--c:var(--navy-700)">S1 125</span><span style="--c:var(--accent-crimson)">MVP 45</span><span style="--c:var(--navy-900)">S2 120</span></div>
-      <p class="out">Học cơ bản cả 3 mảng, chọn 1 chuyên ngành giữa tháng 4. Tháng 7 có MVP (backend Go kèm web hoặc app) demo trước người dùng thật.</p>
-      <p class="gate"><i class="gate-dot"></i><span><b>Cổng 1 · Tháng 7</b> — demo MVP + debug trực tiếp 30 phút, không dùng AI.</span></p>
-      <a class="btn btn-navy" href="#gd1">Chi tiết giai đoạn 1</a>
+      <div class="top"><span class="tag">Tháng 1–8</span><span class="hrs">8<small> tháng</small></span></div>
+      <h3>Cơ bản</h3>
+      <p class="out">Nền tảng tư duy lập trình, công cụ làm việc, và hiểu cách một hệ thống web vận hành từ đầu đến cuối. Toàn bộ học viên học chung.</p>
+      <p class="gate"><i class="gate-dot"></i><span><b>Đầu ra</b>: tự build một Golang API đơn giản và trang web tĩnh gọi API đó.</span></p>
+      <a class="btn btn-navy" href="#chang-1">Chi tiết chặng 1</a>
     </article>
     <article class="card phase reveal"><span class="idx"></span>
-      <div class="top"><span class="tag">Tháng 10–16</span><span class="hrs">300<small> giờ</small></span></div>
-      <h3>Từ yêu cầu đến production</h3>
-      <div class="hbar" role="img" aria-label="Lý thuyết 140, dự án 160 giờ"><i style="width:46.7%;background:var(--surface-blue-100)"></i><i style="width:53.3%;background:var(--navy-500)"></i></div>
-      <div class="hbar-key" aria-hidden="true"><span style="--c:var(--surface-blue-100)">Lý thuyết 140</span><span style="--c:var(--navy-500)">Dự án 160</span></div>
-      <p class="out">Mỗi nhóm tự phân tích, viết PRD và đưa sản phẩm lên production, chạy ít nhất 4 tuần với người dùng thật. 160 giờ là làm dự án.</p>
-      <p class="gate"><i class="gate-dot"></i><span><b>Cổng 2 · Tháng 16</b> — xem xét sản phẩm đang chạy production.</span></p>
-      <a class="btn btn-navy" href="#gd2">Chi tiết giai đoạn 2</a>
+      <div class="top"><span class="tag">Tháng 9–17</span><span class="hrs">9<small> tháng</small></span></div>
+      <h3>Nâng cao</h3>
+      <p class="out">Đi sâu một hướng chuyên môn, biết viết code có kiểm thử, an toàn, đóng gói và sẵn sàng triển khai.</p>
+      <p class="gate"><i class="gate-dot"></i><span><b>Đầu ra</b>: dự án cá nhân theo hướng chính, có test, có Docker, có tài liệu API/thiết kế.</span></p>
+      <a class="btn btn-navy" href="#chang-2">Chi tiết chặng 2</a>
     </article>
     <article class="card phase reveal"><span class="idx"></span>
-      <div class="top"><span class="tag">Tháng 16–24</span><span class="hrs">300<small> giờ</small></span></div>
-      <h3>Kiến trúc và mở rộng</h3>
-      <div class="hbar" role="img" aria-label="Lý thuyết 180, dự án 120 giờ"><i style="width:60%;background:var(--surface-blue-100)"></i><i style="width:40%;background:var(--navy-900)"></i></div>
-      <div class="hbar-key" aria-hidden="true"><span style="--c:var(--surface-blue-100)">Lý thuyết 180</span><span style="--c:var(--navy-900)">Dự án 120</span></div>
-      <p class="out">Chứng minh bằng số đo hệ thống chịu được tải mục tiêu, bảo vệ từng quyết định kiến trúc bằng ADR, tự lập IDP 12 tháng.</p>
-      <p class="gate"><i class="gate-dot"></i><span><b>Cổng 3 · Tháng 24</b> — bảo vệ trước hội đồng kỹ thuật.</span></p>
-      <a class="btn btn-navy" href="#gd3">Chi tiết giai đoạn 3</a>
+      <div class="top"><span class="tag">Tháng 18–24</span><span class="hrs">7<small> tháng</small></span></div>
+      <h3>Thực hành</h3>
+      <p class="out">Làm dự án theo team như môi trường thật, từ lấy requirements đến vận hành sau khi lên production.</p>
+      <p class="gate"><i class="gate-dot"></i><span><b>Tốt nghiệp</b>: sản phẩm hoàn chỉnh chạy trên internet, có CI/CD, có monitoring, demo trước hội đồng.</span></p>
+      <a class="btn btn-navy" href="#chang-3">Chi tiết chặng 3</a>
     </article>
   </div>
 </div></section>
 
-<section id="gd1"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Giai đoạn 1 · Tháng 0–10 · ~470 giờ</p><h2>Nền tảng và thực hành</h2><p class="sub">Bài thực hành của mọi khối làm trên cùng một đề bài của nhóm, nên đến tháng 7 các phần ghép lại thành MVP thay vì làm lại từ đầu.</p></header>
-  <div class="tbl reveal"><table>
-    <thead><tr><th>Khối</th><th>Thời gian</th><th class="r">Giờ</th><th>Đầu ra bắt buộc</th></tr></thead>
-    <tbody>
-      <tr><td data-label="Khối">F. Nền tảng</td><td data-label="Thời gian">Tháng 1</td><td data-label="Giờ" class="r num">60</td><td data-label="Đầu ra">Repo cá nhân có PR đã được review; schema DB cho đề bài của nhóm</td></tr>
-      <tr><td data-label="Khối">C. Cơ bản 3 mảng</td><td data-label="Thời gian">Tháng 2 – giữa tháng 4</td><td data-label="Giờ" class="r num">120</td><td data-label="Đầu ra">Một tính năng nhỏ làm xong bằng cả Go, web và Flutter</td></tr>
-      <tr><td data-label="Khối">Chọn chuyên ngành</td><td data-label="Thời gian">Giữa tháng 4</td><td data-label="Giờ" class="r num">0</td><td data-label="Đầu ra">Chọn 1 trong 3: Backend Go, Web Next.js, Mobile Flutter</td></tr>
-      <tr><td data-label="Khối">S1. Chuyên sâu phần 1</td><td data-label="Thời gian">Giữa tháng 4 – tháng 6</td><td data-label="Giờ" class="r num">125</td><td data-label="Đầu ra">Phần việc của mình trong MVP chạy được trên staging</td></tr>
-      <tr class="is-gate"><td data-label="Khối">MVP sprint</td><td data-label="Thời gian">Tháng 7</td><td data-label="Giờ" class="r num">45</td><td data-label="Đầu ra"><span>MVP demo trước người dùng thật <span class="pill g">Cổng 1</span></span></td></tr>
-      <tr><td data-label="Khối">S2. Chuyên sâu phần 2</td><td data-label="Thời gian">Tháng 8–10</td><td data-label="Giờ" class="r num">120</td><td data-label="Đầu ra">Phần mình phụ trách trong MVP đạt mức sẵn sàng production</td></tr>
-    </tbody></table></div>
-
-  <div class="grid2" style="margin-top:var(--space-5)">
-    <div class="card reveal"><h3>F. Nền tảng — 60 giờ</h3><ul class="hr-list"><li class="hr"><div class="t">Git và làm việc nhóm</div><div class="d">commit, branch, merge/rebase, conflict, pull request, code review, GitHub Flow<div class="meter" aria-hidden="true"><i style="width:44.44%"></i></div></div><div class="h"><span class="num">8</span><small>giờ</small></div></li><li class="hr"><div class="t">Linux, HTTP, mạng cơ bản</div><div class="d">shell, SSH, process, biến môi trường; HTTP method, status, header; DNS; REST<div class="meter" aria-hidden="true"><i style="width:44.44%"></i></div></div><div class="h"><span class="num">8</span><small>giờ</small></div></li><li class="hr"><div class="t">Database</div><div class="d">mô hình quan hệ, chuẩn hoá 3NF, SQL (JOIN, GROUP BY, subquery, window function), index B-tree, transaction, ACID, isolation level; PostgreSQL<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">18</span><small>giờ</small></div></li><li class="hr"><div class="t">Cấu trúc dữ liệu và giải thuật</div><div class="d">array, hash map, set, stack, queue, tree, graph (BFS, DFS), sắp xếp, tìm kiếm, Big-O<div class="meter" aria-hidden="true"><i style="width:77.78%"></i></div></div><div class="h"><span class="num">14</span><small>giờ</small></div></li><li class="hr"><div class="t">Phân tích và thiết kế hệ thống</div><div class="d">use case, ERD, sequence diagram, C4 mức 1–2<div class="meter" aria-hidden="true"><i style="width:66.67%"></i></div></div><div class="h"><span class="num">12</span><small>giờ</small></div></li></ul>
-      <p class="note">14 giờ giải thuật chỉ đủ để dùng đúng cấu trúc dữ liệu trong công việc, không đủ cho phỏng vấn công ty lớn hay lập trình thi đấu.</p></div>
+<section id="chang-1"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Chặng 1 · Tháng 1–8 · Học chung</p><h2>Cơ bản</h2><p class="sub">Nền tảng tư duy lập trình, công cụ làm việc, và hiểu cách một hệ thống web vận hành từ đầu đến cuối.</p></header>
+  <div class="grid2">
+    <div class="card reveal"><h3><span class="no">1.1</span>Công cụ làm việc</h3>
+      <p class="note" style="margin-bottom:14px">Học ngay tháng đầu, dùng xuyên suốt.</p>
+      <ul class="checks">
+        <li><span><b>Git &amp; version control:</b> commit, branch, merge, remote, GitHub/GitLab</span></li>
+        <li><span><b>Linux &amp; command line:</b> điều hướng, quyền file, process, grep/find, ssh</span></li>
+        <li><span><b>AI trong học tập:</b> dùng AI để giải thích code, sinh bài tập, tự review bài làm, kèm nguyên tắc: hiểu trước khi dùng, không copy mù</span></li>
+        <li><span><b>IDE &amp; môi trường:</b> cài đặt, shortcut, debugger cơ bản</span></li>
+      </ul></div>
     <div class="stack-col">
-      <div class="card reveal"><h3>C. Cơ bản 3 mảng — 120 giờ</h3><ul class="hr-list"><li class="hr"><div class="t">Go cơ bản</div><div class="d">type, struct, interface, xử lý lỗi, module; API CRUD bằng net/http + PostgreSQL<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">40</span><small>giờ</small></div></li><li class="hr"><div class="t">Web cơ bản</div><div class="d">TypeScript cơ bản, HTML/CSS, React: component, state, gọi API<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">40</span><small>giờ</small></div></li><li class="hr"><div class="t">Flutter cơ bản</div><div class="d">Dart cơ bản, widget, layout, gọi API<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">40</span><small>giờ</small></div></li></ul>
-        <p class="note">Mục đích: chọn chuyên ngành dựa trên trải nghiệm thật, không theo cảm tính hay theo bạn bè.</p></div>
-      <div class="card reveal"><h3>Chọn chuyên ngành · giữa tháng 4</h3>
+      <div class="card reveal"><h3><span class="no">1.2</span>Nền tảng Internet &amp; thuật ngữ ngành</h3>
         <ul class="checks">
-          <li>Học viên tự chọn; mentor tư vấn dựa trên 3 bài cơ bản và buổi 1-1.</li>
-          <li>Được đổi chuyên ngành một lần, trong 4 tuần đầu của S1.</li>
-          <li>Mỗi nhóm MVP cần ít nhất 1 backend và 1 web hoặc mobile.</li>
+          <li><span>Cách web hoạt động: client–server, HTTP/HTTPS, request/response, DNS</span></li>
+          <li><span>JSON, REST API là gì</span></li>
+          <li><span>Các thuật ngữ trong ngành IT: dev/QA/BA/PM, môi trường dev/staging/prod, bug/feature, sprint...</span></li>
+        </ul></div>
+      <div class="card reveal"><h3><span class="no">1.3</span>Tư duy lập trình</h3>
+        <ul class="checks">
+          <li><span><b>Data structures:</b> array, list, map, stack, queue, tree cơ bản</span></li>
+          <li><span><b>Algorithms:</b> sort, search, đệ quy, độ phức tạp Big-O</span></li>
+          <li><span><b>Debugging:</b> dùng debugger, đọc stack trace, đọc log, rèn như thói quen trong mọi bài tập</span></li>
         </ul></div>
     </div>
+    <div class="card reveal"><h3><span class="no">1.4</span>Ngôn ngữ &amp; dữ liệu</h3>
+      <ul class="checks">
+        <li><span><b>SQL:</b> CRUD, JOIN, GROUP BY, thiết kế bảng cơ bản</span></li>
+        <li><span><b>Golang:</b> cú pháp, struct, interface, goroutine cơ bản, viết CLI tool nhỏ</span></li>
+        <li><span><b>HTML, CSS, JS:</b> dựng trang tĩnh, DOM, fetch API</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">1.5</span>Mobile nhập môn</h3>
+      <ul class="checks">
+        <li><span><b>Flutter cơ bản:</b> widget, layout, state đơn giản, ở mức làm quen, chưa đi sâu</span></li>
+      </ul></div>
   </div>
-</div></section>
-
-<section id="chuyen-sau" class="tint"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">S1 + S2 · 245 giờ mỗi chuyên ngành</p><h2>Ba nhánh chuyên sâu</h2><p class="sub">S1 (125 giờ) dạy những gì cần để làm MVP. S2 (120 giờ) nâng phần việc đó lên mức chạy được production.</p></header>
-  <div class="tabs" role="tablist" aria-label="Chuyên ngành">
-    <button class="tab" role="tab" id="tab-go" aria-controls="panel-go" aria-selected="true" tabindex="0">Backend Go</button>
-    <button class="tab" role="tab" id="tab-web" aria-controls="panel-web" aria-selected="false" tabindex="-1">Web Next.js</button>
-    <button class="tab" role="tab" id="tab-mob" aria-controls="panel-mob" aria-selected="false" tabindex="-1">Mobile Flutter (Bloc)</button>
-  </div>
-  <div class="card spec" role="tabpanel" id="panel-go" aria-labelledby="tab-go" tabindex="0">
-      <div class="spec-sum">
-        <div><span>S1 · làm MVP</span><b class="num">125<small> giờ</small></b></div>
-        <div><span>S2 · lên production</span><b class="num">120<small> giờ</small></b></div>
-        <div><span>Tổng chuyên ngành</span><b class="num">245<small> giờ</small></b></div>
-      </div>
-      <ul class="hr-list"><li class="hr"><div class="t"><span class="ph">S1</span>HTTP API</div><div class="d">router chi, middleware, validation, thiết kế REST, OpenAPI<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Làm việc với DB</div><div class="d">pgx + sqlc, migration bằng goose, transaction, tách handler / service / repository<div class="meter" aria-hidden="true"><i style="width:85.71%"></i></div></div><div class="h"><span class="num">30</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Xác thực và bảo mật</div><div class="d">băm mật khẩu, JWT hoặc session, RBAC, OWASP Top 10<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Concurrency</div><div class="d">goroutine, channel, context, phát hiện race<div class="meter" aria-hidden="true"><i style="width:28.57%"></i></div></div><div class="h"><span class="num">10</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Kiểm thử</div><div class="d">table-driven test, mock qua interface, testcontainers, golangci-lint<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Đóng gói và triển khai</div><div class="d">Docker, docker-compose, cấu hình theo môi trường, GitHub Actions, staging<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>PostgreSQL chuyên sâu</div><div class="d">index, EXPLAIN, locking, tối ưu truy vấn<div class="meter" aria-hidden="true"><i style="width:85.71%"></i></div></div><div class="h"><span class="num">30</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Cache và xử lý nền</div><div class="d">Redis, background job, message queue cơ bản<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Quan sát hệ thống</div><div class="d">log có cấu trúc (slog), metrics, tracing<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Thiết kế API nâng cao</div><div class="d">versioning, phân trang, idempotency, rate limit<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Hiệu năng</div><div class="d">profiling bằng pprof, load test bằng k6<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li></ul>
-      <p class="note">Chọn chi thay vì gin vì chi bám sát net/http: học viên học chuẩn thư viện của Go, không phụ thuộc cách làm riêng của framework.</p>
-    </div><div class="card spec" role="tabpanel" id="panel-web" aria-labelledby="tab-web" tabindex="0" hidden>
-      <div class="spec-sum">
-        <div><span>S1 · làm MVP</span><b class="num">125<small> giờ</small></b></div>
-        <div><span>S2 · lên production</span><b class="num">120<small> giờ</small></b></div>
-        <div><span>Tổng chuyên ngành</span><b class="num">245<small> giờ</small></b></div>
-      </div>
-      <ul class="hr-list"><li class="hr"><div class="t"><span class="ph">S1</span>TypeScript chuyên sâu</div><div class="d">generic, narrowing, type cho dữ liệu API<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>React</div><div class="d">hooks, form (react-hook-form + zod), TanStack Query<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">35</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Next.js</div><div class="d">App Router, server/client component, SSR/SSG, middleware xác thực, gọi API Go<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">35</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Giao diện</div><div class="d">Tailwind, thư viện component, responsive<div class="meter" aria-hidden="true"><i style="width:42.86%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Kiểm thử</div><div class="d">Vitest, Testing Library, Playwright cho luồng chính<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Kiến trúc frontend</div><div class="d">cấu trúc thư mục, quản lý state, tách component<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Hiệu năng</div><div class="d">Core Web Vitals, kích thước bundle, caching, chọn cách render<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Bảo mật web</div><div class="d">XSS, CSRF, CSP, lưu token an toàn<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Design system</div><div class="d">token màu và chữ, bộ component dùng chung<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Accessibility và đa ngôn ngữ</div><div class="d">chuẩn truy cập cơ bản, i18n<div class="meter" aria-hidden="true"><i style="width:42.86%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Triển khai</div><div class="d">Docker, CI, biến môi trường<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li></ul>
-      <p class="note">Chốt từ đầu: Next.js chỉ là tầng giao diện, nghiệp vụ nằm ở Go. Nếu không, học viên sẽ viết logic vào API route và tạo ra hai backend song song.</p>
-    </div><div class="card spec" role="tabpanel" id="panel-mob" aria-labelledby="tab-mob" tabindex="0" hidden>
-      <div class="spec-sum">
-        <div><span>S1 · làm MVP</span><b class="num">125<small> giờ</small></b></div>
-        <div><span>S2 · lên production</span><b class="num">120<small> giờ</small></b></div>
-        <div><span>Tổng chuyên ngành</span><b class="num">245<small> giờ</small></b></div>
-      </div>
-      <ul class="hr-list"><li class="hr"><div class="t"><span class="ph">S1</span>Dart chuyên sâu</div><div class="d">null safety, Future, Stream, isolate<div class="meter" aria-hidden="true"><i style="width:42.86%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Widget và layout</div><div class="d">layout phức tạp, animation cơ bản, theme<div class="meter" aria-hidden="true"><i style="width:85.71%"></i></div></div><div class="h"><span class="num">30</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Bloc</div><div class="d">event, state, Cubit, BlocProvider, bloc_test<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Mạng và dữ liệu</div><div class="d">dio, JSON serialization, lưu token an toàn<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Điều hướng</div><div class="d">go_router, deep link<div class="meter" aria-hidden="true"><i style="width:42.86%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph">S1</span>Kiểm thử</div><div class="d">widget test, integration test<div class="meter" aria-hidden="true"><i style="width:42.86%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Offline và dữ liệu cục bộ</div><div class="d">drift, đồng bộ khi có mạng lại<div class="meter" aria-hidden="true"><i style="width:71.43%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Tính năng native</div><div class="d">xin quyền, push notification (FCM), camera, file<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Hiệu năng</div><div class="d">Flutter DevTools, giảm rebuild<div class="meter" aria-hidden="true"><i style="width:42.86%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Build và CI</div><div class="d">flavor dev/prod, build tự động<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Phát hành</div><div class="d">Android, iOS, Firebase App Distribution, TestFlight<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t"><span class="ph s2">S2</span>Accessibility và đa ngôn ngữ</div><div class="d">chuẩn truy cập cơ bản, i18n<div class="meter" aria-hidden="true"><i style="width:57.14%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li></ul>
-      <p class="note">Build iOS cần máy macOS và tài khoản Apple Developer. Nếu chưa có, giới hạn đầu ra ở Android.</p>
-    </div>
-</div></section>
-
-<section id="gd2"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Giai đoạn 2 · Tháng 10–16 · ~300 giờ</p><h2>Từ yêu cầu đến production</h2><p class="sub">Hơn một nửa thời lượng là làm dự án; lý thuyết chỉ học đủ để dùng ngay trong sprint kế tiếp.</p></header>
-  <div class="grid2">
-    <div class="card reveal"><h3>Nội dung học</h3><ul class="hr-list"><li class="hr"><div class="t">Khám phá yêu cầu</div><div class="d">phỏng vấn người dùng, quan sát công việc, Jobs-to-be-Done, 5 Whys<div class="meter" aria-hidden="true"><i style="width:15.63%"></i></div></div><div class="h"><span class="num">25</span><small>giờ</small></div></li><li class="hr"><div class="t">User story và tiêu chí chấp nhận</div><div class="d">INVEST, tách story, Given/When/Then, story mapping, DoR/DoD<div class="meter" aria-hidden="true"><i style="width:12.5%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t">PRD và định hướng sản phẩm</div><div class="d">mục tiêu, non-goal, chỉ số thành công, phạm vi phát hành, RICE/MoSCoW<div class="meter" aria-hidden="true"><i style="width:12.5%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t">Tư vấn và hỗ trợ người dùng</div><div class="d">hướng dẫn sử dụng, đào tạo, phân loại phản hồi, từ chối yêu cầu ngoài phạm vi<div class="meter" aria-hidden="true"><i style="width:6.25%"></i></div></div><div class="h"><span class="num">10</span><small>giờ</small></div></li><li class="hr"><div class="t">Tổ chức dự án</div><div class="d">Scrum/Kanban thực dụng, ước lượng, sprint planning, retrospective, rủi ro<div class="meter" aria-hidden="true"><i style="width:12.5%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t">Vận hành production</div><div class="d">dev/staging/prod, CI/CD, migration an toàn, feature flag, Prometheus + Grafana, log tập trung, backup/restore, runbook, sự cố<div class="meter" aria-hidden="true"><i style="width:18.75%"></i></div></div><div class="h"><span class="num">30</span><small>giờ</small></div></li><li class="hr"><div class="t">AI trong SDLC mức 1</div><div class="d">AI cho phân tích yêu cầu, sinh test case, review code, tài liệu<div class="meter" aria-hidden="true"><i style="width:9.38%"></i></div></div><div class="h"><span class="num">15</span><small>giờ</small></div></li><li class="hr"><div class="t">Dự án thực tế</div><div class="d">5 bước: phỏng vấn → PRD → 3–4 sprint → release → vận hành 4 tuần<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">160</span><small>giờ</small></div></li></ul></div>
-    <div class="stack-col">
-      <div class="card reveal"><h3>Quy trình dự án thực tế</h3>
-        <ol class="steps">
-          <li>Phỏng vấn ít nhất 5 người dùng thật, ghi biên bản.</li>
-          <li>Viết PRD, được Product Owner duyệt.</li>
-          <li>Phát triển 3–4 sprint; mỗi sprint một học viên luân phiên phụ trách yêu cầu.</li>
-          <li>Release production, có runbook và cảnh báo.</li>
-          <li>Vận hành ít nhất 4 tuần, thu phản hồi, làm một vòng cải tiến.</li>
-        </ol></div>
-      <p class="note reveal">Điểm yếu thường gặp không nằm ở kiến thức mà ở chỗ sinh viên ngại hỏi và dễ nhận mọi yêu cầu. Mentor nên dự 2 buổi phỏng vấn đầu tiên và góp ý ngay sau buổi.</p>
-      <p class="note reveal">Sản phẩm tự chọn chỉ được duyệt khi nhóm tiếp cận được ít nhất 5 người dùng thật; không có người dùng thì giai đoạn này chỉ còn là bài tập.</p>
-    </div>
-  </div>
-</div></section>
-
-<section id="gd3" class="band"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Giai đoạn 3 · Tháng 16–24 · ~300 giờ</p><h2>Kiến trúc và mở rộng</h2><p class="sub">Lý thuyết học chung; phần áp dụng theo chuyên ngành: backend về kiến trúc hệ thống và hiệu năng server, web về kiến trúc frontend và tốc độ tải trang, mobile về kiến trúc app và đồng bộ offline.</p></header>
-  <div class="grid2">
-    <div class="card reveal"><h3>Nội dung học</h3><ul class="hr-list"><li class="hr"><div class="t">Kiến trúc hệ thống</div><div class="d">modular monolith vs microservices, clean architecture, DDD (bounded context), ADR, C4 mức 3<div class="meter" aria-hidden="true"><i style="width:33.33%"></i></div></div><div class="h"><span class="num">40</span><small>giờ</small></div></li><li class="hr"><div class="t">Mở rộng và hiệu năng</div><div class="d">Redis, NATS/RabbitMQ, k6, tối ưu truy vấn, read replica, partition, rate limit, idempotency<div class="meter" aria-hidden="true"><i style="width:33.33%"></i></div></div><div class="h"><span class="num">40</span><small>giờ</small></div></li><li class="hr"><div class="t">Độ tin cậy</div><div class="d">OpenTelemetry, SLI/SLO, timeout, retry, circuit breaker, postmortem không đổ lỗi<div class="meter" aria-hidden="true"><i style="width:25%"></i></div></div><div class="h"><span class="num">30</span><small>giờ</small></div></li><li class="hr"><div class="t">Bảo mật và dữ liệu</div><div class="d">threat modeling, quản lý secret, audit log, phân quyền chi tiết, dữ liệu cá nhân<div class="meter" aria-hidden="true"><i style="width:16.67%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t">AI trong SDLC mức 2</div><div class="d">quy trình với AI agent; tính năng LLM có RAG, đánh giá chất lượng, kiểm soát chi phí<div class="meter" aria-hidden="true"><i style="width:25%"></i></div></div><div class="h"><span class="num">30</span><small>giờ</small></div></li><li class="hr"><div class="t">Dẫn dắt và tự phát triển</div><div class="d">kèm khoá sau, review code, trình bày giải pháp, tự lập IDP 12 tháng<div class="meter" aria-hidden="true"><i style="width:16.67%"></i></div></div><div class="h"><span class="num">20</span><small>giờ</small></div></li><li class="hr"><div class="t">Dự án</div><div class="d">nâng cấp sản phẩm giai đoạn 2 để phục vụ nhiều người dùng hơn<div class="meter" aria-hidden="true"><i style="width:100%"></i></div></div><div class="h"><span class="num">120</span><small>giờ</small></div></li></ul></div>
-    <div class="stack-col">
-      <div class="card reveal"><h3>Quy trình dự án</h3>
-        <ol class="steps">
-          <li>Chốt với mentor chỉ số tải mục tiêu: người dùng đồng thời, độ trễ p95, tỷ lệ lỗi.</li>
-          <li>Load test hệ thống hiện tại, tìm điểm nghẽn.</li>
-          <li>Mỗi thay đổi kiến trúc có một ADR: lựa chọn, phương án bị loại và lý do.</li>
-          <li>Đo lại sau thay đổi, trình bày số liệu trước và sau.</li>
-        </ol></div>
-      <p class="note reveal">Microservices không phải mục tiêu. Với quy mô sản phẩm nội bộ, modular monolith thường là đáp án đúng; thứ cần dạy là ra quyết định dựa trên số đo.</p>
-      <p class="note reveal">Cho học viên từ tháng 16 kèm khoá sau: giảm tải cho mentor và kiểm chứng học viên hiểu thật hay chỉ làm theo.</p>
-    </div>
-  </div>
-</div></section>
-
-<section id="ai" class="tint"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Chính sách dùng AI</p><h2>AI mở dần theo năng lực</h2><p class="sub">Người chưa tự viết được code thì không đánh giá được code do AI viết, nên càng về sau học viên càng được dùng nhiều.</p></header>
-  <ol class="ai-ramp reveal"><li class="ai-step">
-      <div class="ai-lvl" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-      <p class="ai-when">Tháng 1 · mức 1/4</p>
-      <h3>Nền tảng</h3>
-      <div class="ai-k yes"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Được dùng</b><p>hỏi giải thích khái niệm, hỏi vì sao code lỗi</p></div></div>
-      <div class="ai-k no"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div><b>Không được</b><p>sinh code để nộp bài</p></div></div>
-      <div class="ai-k ctl"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg><div><b>Kiểm soát</b><p>bài kiểm tra thực hành tại chỗ, không AI</p></div></div>
-    </li><li class="ai-step">
-      <div class="ai-lvl" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></div>
-      <p class="ai-when">Tháng 2–10 · mức 2/4</p>
-      <h3>Khối C, S1, S2</h3>
-      <div class="ai-k yes"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Được dùng</b><p>sinh code khung, gợi ý test, giải thích lỗi</p></div></div>
-      <div class="ai-k no"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div><b>Không được</b><p>nộp code mà bản thân không giải thích được</p></div></div>
-      <div class="ai-k ctl"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg><div><b>Kiểm soát</b><p>mỗi lần review, mentor hỏi ngẫu nhiên 1–2 đoạn; không giải thích được thì làm lại</p></div></div>
-    </li><li class="ai-step">
-      <div class="ai-lvl" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-      <p class="ai-when">Tháng 7–16 · mức 3/4</p>
-      <h3>MVP và giai đoạn 2</h3>
-      <div class="ai-k yes"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Được dùng</b><p>AI agent (Claude Code, Codex) làm trọn tính năng; phân tích yêu cầu, sinh test case, tài liệu</p></div></div>
-      <div class="ai-k no"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div><b>Không được</b><p>đưa dữ liệu nội bộ vào công cụ AI ngoài Claude Code và Codex</p></div></div>
-      <div class="ai-k ctl"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg><div><b>Kiểm soát</b><p>tài khoản công ty cấp; PR ghi rõ phần AI sinh; review như code người viết</p></div></div>
-    </li><li class="ai-step">
-      <div class="ai-lvl" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-      <p class="ai-when">Tháng 16–24 · mức 4/4</p>
-      <h3>Giai đoạn 3</h3>
-      <div class="ai-k yes"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Được dùng</b><p>thiết kế quy trình AI cho cả nhóm, xây tính năng dùng LLM</p></div></div>
-      <div class="ai-k no"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg><div><b>Không được</b><p>đánh giá hiệu quả bằng cảm tính</p></div></div>
-      <div class="ai-k ctl"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg><div><b>Kiểm soát</b><p>đo thời gian hoàn thành và số lỗi trước/sau khi áp dụng</p></div></div>
-    </li></ol>
-  <div class="grid2" style="margin-top:var(--space-5)">
-    <div class="card reveal"><h3>Mức 1 · 15 giờ · Giai đoạn 2</h3><p>Viết prompt đủ ngữ cảnh, kiểm chứng đầu ra, sinh test case từ tiêu chí chấp nhận, dùng AI review PR; rủi ro bịa thông tin, lộ dữ liệu, vi phạm license.</p></div>
-    <div class="card reveal"><h3>Mức 2 · 30 giờ · Giai đoạn 3</h3><p>Chia việc và viết đặc tả cho AI agent, review diff do agent tạo, xây tính năng LLM có RAG, bộ đánh giá chất lượng và giới hạn chi phí.</p></div>
-  </div>
-  <p class="note reveal" style="margin-top:var(--space-5)">Rủi ro lớn nhất: ra sản phẩm rất nhanh bằng AI nhưng không tự debug được. Vì vậy Cổng 1 có một bài debug trực tiếp, không dùng AI.</p>
-</div></section>
-
-<section id="danh-gia"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">7 mốc · 3 cổng</p><h2>Cơ chế đánh giá</h2><p class="sub">Mọi mốc chấm bằng sản phẩm hoặc thao tác trực tiếp, không chấm bằng trắc nghiệm.</p></header>
-  <div class="gates">
-    <article class="card gate-card reveal"><div class="when"><b>Cổng 1</b><span class="tag">Tháng 7</span></div>
-      <div><p class="k">Hình thức</p><p class="form">Demo MVP + debug trực tiếp 30 phút, không AI</p></div>
-      <div><p class="k">Tiêu chí đạt</p><p>Người dùng thật tự dùng được luồng chính; học viên tự tìm và sửa lỗi được cài sẵn.</p></div></article>
-    <article class="card gate-card reveal"><div class="when"><b>Cổng 2</b><span class="tag">Tháng 16</span></div>
-      <div><p class="k">Hình thức</p><p class="form">Xem xét sản phẩm đang chạy production</p></div>
-      <div><p class="k">Tiêu chí đạt</p><p>PRD đã duyệt, chạy từ 4 tuần, có runbook, ít nhất một sự cố hoặc phản hồi đã xử lý và ghi nhận.</p></div></article>
-    <article class="card gate-card reveal"><div class="when"><b>Cổng 3</b><span class="tag">Tháng 24</span></div>
-      <div><p class="k">Hình thức</p><p class="form">Bảo vệ trước hội đồng kỹ thuật</p></div>
-      <div><p class="k">Tiêu chí đạt</p><p>Bộ ADR, số đo trước và sau tối ưu, IDP 12 tháng có mục tiêu đo được.</p></div></article>
-  </div>
-  <div class="tbl reveal"><table>
-    <thead><tr><th>Mốc review</th><th>Thời điểm</th><th>Hình thức</th><th>Tiêu chí đạt</th></tr></thead>
-    <tbody>
-      <tr><td data-label="Mốc"><span>Cuối khối F <span class="pill r">Review</span></span></td><td data-label="Thời điểm">Tháng 1</td><td data-label="Hình thức">Bài thực hành 3 giờ</td><td data-label="Tiêu chí">Schema đạt 3NF, 10 truy vấn SQL chạy đúng, tự xử lý conflict Git</td></tr>
-      <tr><td data-label="Mốc"><span>Cuối C, S1, S2 <span class="pill r">3 review</span></span></td><td data-label="Thời điểm">Giữa T4, T6, T10</td><td data-label="Hình thức">Mentor review code và hỏi trực tiếp</td><td data-label="Tiêu chí">Đạt từ 70% rubric: chạy đúng yêu cầu, cấu trúc code, test, giải thích được</td></tr>
-    </tbody></table></div>
-  <p class="note reveal" style="margin-top:var(--space-5)">Không qua cổng: làm lại một lần, thêm tối đa một tháng. Không qua lần hai thì trao đổi hướng khác (kiểm thử, phân tích nghiệp vụ) hoặc dừng. Giữ học viên chưa đạt sẽ kéo cả nhóm dự án ở giai đoạn sau.</p>
-</div></section>
-
-<section id="van-hanh" class="tint"><div class="wrap">
-  <header class="sec-head reveal"><p class="eyebrow">Mentor toàn thời gian · 5–6 học viên/mentor</p><h2>Vận hành và rủi ro</h2></header>
-  <div class="rhythm">
-    <div class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>Mỗi tuần</b><p>1 buổi học chung 2 giờ; còn lại tự học, nộp bài qua pull request.</p></div>
-    <div class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg><b>Mỗi 2 tuần</b><p>1-1 giữa mentor và từng học viên, 20–30 phút.</p></div>
-    <div class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><b>Mỗi 6 tháng</b><p>Mở khoá mới; học viên giai đoạn 3 kèm khoá mới và review vòng đầu.</p></div>
-    <div class="card reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l4-4"/><path d="M3.3 16a9 9 0 1 1 17.4 0"/><circle cx="12" cy="14" r="1.2"/></svg><b>Mỗi 6 tháng</b><p>Rà soát nội dung: giữ nguyên lý, thay công cụ khi lỗi thời.</p></div>
-  </div>
-  <div class="tbl reveal" style="margin-top:var(--space-5)"><table>
-    <thead><tr><th>Rủi ro</th><th>Dấu hiệu sớm</th><th>Cách xử lý</th></tr></thead>
-    <tbody>
-      <tr><td data-label="Rủi ro">Bỏ giữa chừng (mùa thi, hết hứng thú)</td><td data-label="Dấu hiệu">Nộp bài trễ 2 tuần liên tiếp</td><td data-label="Xử lý">Giảm tải mùa thi, gặp 1-1 ngay khi có dấu hiệu</td></tr>
-      <tr><td data-label="Rủi ro">Năm 4 trùng thực tập, đồ án</td><td data-label="Dấu hiệu">Xin giảm giờ từ tháng 14–16</td><td data-label="Xử lý">Gắn dự án giai đoạn 2–3 với đồ án tốt nghiệp</td></tr>
-      <tr><td data-label="Rủi ro">Cả khoá dồn vào một chuyên ngành</td><td data-label="Dấu hiệu">Quá nửa khoá chọn cùng một chuyên ngành</td><td data-label="Xử lý">Ghép lại nhóm MVP, điều chỉnh tuyển sinh khoá sau</td></tr>
-      <tr><td data-label="Rủi ro">Sản phẩm tự chọn không có người dùng</td><td data-label="Dấu hiệu">Không tìm đủ 5 người để phỏng vấn</td><td data-label="Xử lý">Chỉ duyệt khi đã tiếp cận được người dùng; không đạt thì chuyển sang sản phẩm nội bộ</td></tr>
-      <tr><td data-label="Rủi ro">Lệ thuộc AI</td><td data-label="Dấu hiệu">Không giải thích được code của chính mình</td><td data-label="Xử lý">Chính sách AI theo giai đoạn, bài debug không AI ở Cổng 1</td></tr>
-    </tbody></table></div>
-  <div class="card reveal" style="margin-top:var(--space-5);padding:28px"><h3>Quyết định đã chốt</h3>
-    <ul class="decisions" style="margin-top:18px">
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Mentor toàn thời gian, mỗi mentor kèm 5–6 học viên</span></li>
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Học cơ bản cả 3 mảng, sau đó chọn 1 trong 3 để chuyên sâu</span></li>
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Flutter dùng Bloc</span></li>
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Đề bài: sản phẩm nội bộ hoặc nhóm tự chọn, bắt buộc có người dùng thật</span></li>
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Công cụ AI dùng với dữ liệu nội bộ: Claude Code và Codex</span></li>
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Dự án giai đoạn 2–3 được tư vấn để làm đồ án tốt nghiệp</span></li>
-      <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Học viên qua Cổng 2 được cam kết thực tập hoặc tuyển dụng</span></li>
+  <div class="card outcome reveal mt"><p class="k">Đầu ra chặng 1</p><h3>Hoàn thành chặng Cơ bản khi</h3>
+    <ul class="checks">
+      <li><span>Dùng Git + terminal thành thạo trong mọi bài tập</span></li>
+      <li><span>Tự build 1 ứng dụng nhỏ: Golang API đơn giản + trang web tĩnh gọi API đó</span></li>
+      <li><span>Giải thích được luồng đi của 1 HTTP request từ browser đến database và quay lại</span></li>
     </ul></div>
+</div></section>
+
+<section id="chang-2" class="tint"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Chặng 2 · Tháng 9–17 · 1 hướng chính + 1 hướng phụ</p><h2>Nâng cao</h2><p class="sub">Đi sâu một hướng chuyên môn, biết viết code có kiểm thử, an toàn, đóng gói và sẵn sàng triển khai.</p></header>
+  <p class="note lead-note reveal"><span>Học viên chọn <b>1 hướng chính</b> (học đầy đủ) và <b>1 hướng phụ</b> (học phần cốt lõi).</span></p>
+
+  <div class="card reveal" style="padding:28px"><h3><span class="no">2.1</span>Kiến thức chung bắt buộc (mọi hướng đều học)</h3>
+    <ul class="checks two">
+      <li><span><b>Phân tích và thiết kế hệ thống:</b> phân rã chức năng, vẽ sơ đồ (use case, sequence, ERD), thiết kế module</span></li>
+      <li><span><b>Testing:</b> unit test, integration test, mocking; bắt buộc trong mọi bài tập lớn từ đây về sau</span></li>
+      <li><span><b>Database nâng cao:</b> index, transaction, N+1 query, tối ưu query, thiết kế schema cho bài toán thật</span></li>
+      <li><span><b>API design &amp; bảo mật cơ bản:</b> REST chuẩn, authentication/authorization (session, JWT, OAuth2), OWASP Top 10</span></li>
+      <li><span><b>Docker &amp; containerization:</b> Dockerfile, docker-compose, đóng gói ứng dụng của chính mình</span></li>
+      <li><span><b>Clean code &amp; design patterns:</b> gắn trực tiếp vào bài tập chuyên môn, kèm code review chéo giữa học viên</span></li>
+      <li><span><b>AI trong phát triển phần mềm:</b> AI coding assistant (sinh code, refactor, viết test, review), giới hạn và rủi ro khi dùng AI trong dự án thật</span></li>
+      <li><span><b>Mức khái niệm + 1 lab nhỏ:</b> caching với Redis, message queue</span></li>
+    </ul></div>
+
+  <div class="tabs" role="tablist" aria-label="Hướng chuyên môn" style="margin-top:var(--space-7)">
+    <button class="tab" role="tab" id="tab-be" aria-controls="panel-be" aria-selected="true" tabindex="0">Backend</button>
+    <button class="tab" role="tab" id="tab-fe" aria-controls="panel-fe" aria-selected="false" tabindex="-1">Frontend</button>
+    <button class="tab" role="tab" id="tab-mob" aria-controls="panel-mob" aria-selected="false" tabindex="-1">Mobile</button>
+  </div>
+  <div class="card spec" role="tabpanel" id="panel-be" aria-labelledby="tab-be" tabindex="0">
+    <span class="no">2.2 · Hướng Backend</span>
+    <ul class="checks">
+      <li><span>Golang nâng cao: context, concurrency pattern, error handling</span></li>
+      <li><span>GORM / sqlx, migration, repository pattern</span></li>
+      <li><span>Xây dựng REST API hoàn chỉnh: middleware, validation, logging, config</span></li>
+      <li><span>Cấu trúc project chuẩn, phân tầng (handler – service – repository)</span></li>
+    </ul>
+  </div>
+  <div class="card spec" role="tabpanel" id="panel-fe" aria-labelledby="tab-fe" tabindex="0" hidden>
+    <span class="no">2.3 · Hướng Frontend</span>
+    <ul class="checks">
+      <li><span>ReactJS: component, hooks, state management</span></li>
+      <li><span>Vite, cấu trúc project, environment config</span></li>
+      <li><span>TailwindCSS, responsive design</span></li>
+      <li><span>Gọi API, xử lý auth phía client, error/loading state</span></li>
+    </ul>
+  </div>
+  <div class="card spec" role="tabpanel" id="panel-mob" aria-labelledby="tab-mob" tabindex="0" hidden>
+    <span class="no">2.4 · Hướng Mobile</span>
+    <ul class="checks">
+      <li><span>Flutter nâng cao: navigation, async, gọi API</span></li>
+      <li><span>BLoC pattern, quản lý state</span></li>
+      <li><span>Material Design, responsive cho nhiều kích thước màn hình</span></li>
+      <li><span>Build &amp; cài app lên thiết bị thật</span></li>
+    </ul>
+  </div>
+
+  <div class="card outcome reveal mt"><p class="k">Đầu ra chặng 2</p><h3>Hoàn thành chặng Nâng cao khi</h3>
+    <ul class="checks">
+      <li><span>Hoàn thành 1 dự án cá nhân theo hướng chính: có test, có Docker, có tài liệu API/thiết kế</span></li>
+      <li><span>Vượt qua code review theo checklist clean code</span></li>
+      <li><span>Giải thích được các quyết định thiết kế của chính mình: vì sao chọn cấu trúc này, đánh index ở đâu, auth hoạt động thế nào</span></li>
+    </ul></div>
+</div></section>
+
+<section id="chang-3"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Chặng 3 · Tháng 18–24 · Dự án team</p><h2>Thực hành</h2><p class="sub">Làm dự án theo team như môi trường thật, từ lấy requirements đến vận hành sau khi lên production.</p></header>
+  <p class="note lead-note reveal"><span>Dự án làm theo <b>team 3–5 người</b>, mỗi team có đủ vai trò Backend / Frontend / Mobile theo hướng từng người đã chọn.</span></p>
+  <div class="grid2">
+    <div class="card reveal"><h3><span class="no">3.1</span>Requirements &amp; tài liệu</h3>
+      <ul class="checks">
+        <li><span>Cách lấy requirements từ người dùng: phỏng vấn, đặt câu hỏi, xác nhận lại</span></li>
+        <li><span>Phân tích requirements: tách user story, xác định scope, ưu tiên MoSCoW</span></li>
+        <li><span>Xây dựng tài liệu dự án: SRS/spec rút gọn, thiết kế hệ thống, API docs</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">3.2</span>Quy trình làm việc nhóm</h3>
+      <ul class="checks">
+        <li><span>Agile/Scrum cơ bản: sprint, daily, retro, estimate effort</span></li>
+        <li><span>Quản lý task trên Jira (hoặc tương đương)</span></li>
+        <li><span><b>Git workflow thực chiến:</b> branching strategy, pull request, resolve conflict, code review bắt buộc trước khi merge</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">3.3</span>Xây dựng sản phẩm</h3>
+      <ul class="checks">
+        <li><span>Xây dựng ứng dụng backend, frontend, mobile theo thiết kế đã duyệt</span></li>
+        <li><span>Viết test song song với code, duy trì coverage tối thiểu theo quy định team</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">3.4</span>Triển khai &amp; vận hành</h3>
+      <ul class="checks">
+        <li><span>Triển khai hệ thống lên môi trường internet (VPS/cloud)</span></li>
+        <li><span><b>CI/CD:</b> pipeline tự động build – test – deploy (GitHub Actions / GitLab CI)</span></li>
+        <li><span><b>Vận hành sau deploy:</b> logging, monitoring cơ bản, xử lý sự cố, fix bug trên môi trường thật</span></li>
+        <li><span>Quy trình release: versioning, rollback khi có lỗi</span></li>
+      </ul></div>
+  </div>
+  <div class="card reveal mt"><h3><span class="no">3.5</span>Trình bày sản phẩm</h3>
+    <ul class="checks two">
+      <li><span>Demo &amp; thuyết trình trước “khách hàng” (mentor đóng vai), milestone bắt buộc cuối mỗi dự án</span></li>
+      <li><span>Viết tài liệu bàn giao</span></li>
+    </ul></div>
+  <div class="card outcome reveal mt"><p class="k">Đầu ra chặng 3 · Tốt nghiệp</p><h3>Tốt nghiệp khi có</h3>
+    <ul class="checks two">
+      <li><span>1 sản phẩm hoàn chỉnh chạy trên internet, có CI/CD, có monitoring</span></li>
+      <li><span>Bộ tài liệu dự án đầy đủ: requirements, thiết kế, API docs, tài liệu bàn giao</span></li>
+      <li><span>Lịch sử Git thể hiện làm việc nhóm thật: PR, review, resolve conflict</span></li>
+      <li><span>Buổi demo cuối khóa trước hội đồng</span></li>
+    </ul></div>
+</div></section>
+
+<section id="xuyen-suot" class="band"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Kỹ năng xuyên suốt cả 3 chặng</p><h2>Nâng cấp qua từng chặng</h2><p class="sub">Không phải môn học riêng: các kỹ năng này lồng vào mọi bài tập và lên mức cao hơn ở mỗi chặng.</p></header>
+  <div class="skills">
+    <article class="skill reveal">
+      <div class="skill-lvl" aria-hidden="true"><i class="on"></i><i></i><i class="on"></i></div>
+      <h3>Git</h3>
+      <div class="stage"><b>Chặng 1</b>Cá nhân: commit, branch, merge, remote</div>
+      <div class="stage"><b>Chặng 3</b>Workflow team: branching strategy, pull request, resolve conflict, review trước khi merge</div>
+    </article>
+    <article class="skill reveal">
+      <div class="skill-lvl" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <h3>AI</h3>
+      <div class="stage"><b>Chặng 1</b>Công cụ học: giải thích code, sinh bài tập, tự review</div>
+      <div class="stage"><b>Chặng 2</b>Công cụ phát triển: sinh code, refactor, viết test, review</div>
+      <div class="stage"><b>Chặng 3</b>Dùng có kiểm soát trong dự án team</div>
+    </article>
+    <article class="skill reveal">
+      <div class="skill-lvl" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <h3>Testing &amp; Debugging</h3>
+      <div class="stage"><b>Chặng 1</b>Thói quen: debugger, stack trace, log trong mọi bài tập</div>
+      <div class="stage"><b>Chặng 2</b>Bắt buộc: unit test, integration test, mocking trong mọi bài tập lớn</div>
+      <div class="stage"><b>Chặng 3</b>Viết test song song với code, giữ coverage tối thiểu theo quy định team</div>
+    </article>
+    <article class="skill reveal">
+      <div class="skill-lvl" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <h3>Tiếng Anh đọc tài liệu</h3>
+      <div class="stage"><b>Cả 3 chặng</b>Khuyến khích lồng ghép vào mọi môn: tài liệu gốc, error message, docs chính thức</div>
+    </article>
+  </div>
 </div></section>
 
 <section class="cta on-dark"><div class="wrap">
   <div class="reveal">
-    <p class="eyebrow" style="color:var(--surface-blue-100)">Sau Cổng 2 · Tháng 16</p>
-    <h2>Qua Cổng 2, học viên được cam kết thực tập hoặc tuyển dụng</h2>
-    <p>Tiêu chí Cổng 2: PRD đã duyệt, sản phẩm chạy production từ 4 tuần, có runbook, ít nhất một sự cố hoặc phản hồi đã xử lý và ghi nhận.</p>
+    <p class="eyebrow" style="color:var(--surface-blue-100)">Tốt nghiệp · Tháng 24</p>
+    <h2>Ra trường với một sản phẩm thật đang chạy trên internet</h2>
+    <p>Có CI/CD, có monitoring, có bộ tài liệu từ requirements đến bàn giao, và lịch sử Git thể hiện làm việc nhóm thật.</p>
   </div>
   <div class="hero-cta reveal">
-    <a class="btn btn-primary" href="#danh-gia">Xem tiêu chí cổng <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn-primary" href="#chang-3">Xem đầu ra tốt nghiệp</a>
     <a class="btn btn-ghost" href="#lo-trinh">Xem lộ trình</a>
   </div>
 </div></section>
@@ -671,7 +592,7 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
       d.getElementById(x.getAttribute('aria-controls')).hidden=!on;
     });
     if(focus)t.focus();
-    try{localStorage.setItem('spec',t.id)}catch(e){}
+    try{localStorage.setItem('track',t.id)}catch(e){}
   }
   tabs.forEach(function(t,i){
     t.addEventListener('click',function(){select(t)});
@@ -683,7 +604,7 @@ tr.is-gate td:first-child{box-shadow:inset 3px 0 0 var(--accent-crimson)}
       if(n){e.preventDefault();select(n,true)}
     });
   });
-  try{var s=d.getElementById(localStorage.getItem('spec')||'');if(s&&tabs.indexOf(s)>-1)select(s)}catch(e){}
+  try{var s=d.getElementById(localStorage.getItem('track')||'');if(s&&tabs.indexOf(s)>-1)select(s)}catch(e){}
 
   if(!('IntersectionObserver' in window)){[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')});return}
 
