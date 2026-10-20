@@ -1,0 +1,8 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/2-thang", "destination": "/index.html" },
+    { "source": "/6-thang", "destination": "/index.html" },
+    { "source": "/12-thang", "destination": "/index.html" }
+  ]
+}

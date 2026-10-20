@@ -221,6 +221,34 @@ td:first-child{font-weight:600;color:var(--navy-900)}
 .cta p{color:#dfe6f0;font-size:17px;margin-top:14px;max-width:56ch}
 .cta .hero-cta{justify-content:flex-end;margin-top:0}
 
+/* program switcher: one page, one view per roadmap */
+.prog{background:var(--navy-900);color:#fff}
+.prog .wrap{display:flex;align-items:center;gap:14px;min-height:52px}
+.prog-lbl{flex:none;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-weight:500;color:var(--surface-blue-100)}
+.prog-list{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;padding-block:8px}
+.prog-list::-webkit-scrollbar{display:none}
+.prog-list a{flex:none;font-size:13px;line-height:1;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:#fff;text-decoration:none;padding:10px 16px;border-radius:var(--radius-pill);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);transition:background-color .2s,box-shadow .2s}
+.prog-list a:hover{background:rgba(255,255,255,.1)}
+.prog-list a[aria-current]{background-image:var(--gradient-accent);box-shadow:none}
+.prog-list a small{font-size:11px;letter-spacing:.5px;text-transform:none;opacity:.8;margin-left:4px}
+.prog :focus-visible{outline-color:var(--surface-0)}
+#modules{display:none}
+/* gate labels that sit close together: one grows left of its line, the next grows right */
+.gate-lbl.first{transform:none}.gate-lbl.first::after{left:0;margin-left:0}
+
+/* communication patterns, admission steps */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5)}
+.pattern{display:grid;gap:10px;align-content:start}
+.pattern .k{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600;color:var(--accent-crimson)}
+.pattern p{font-size:15px;line-height:1.6}
+.pattern p b{color:var(--navy-900)}
+.step{display:grid;gap:10px;align-content:start;padding:28px var(--space-5)}
+.step .n{font-size:40px;line-height:1;font-weight:600;color:var(--navy-900);font-variant-numeric:tabular-nums}
+.step:last-child .n{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step p{font-size:15px;line-height:1.6}
+td a{color:var(--navy-700);font-weight:600}
+.sub-h{font-size:16px;line-height:1.4;font-weight:600;color:var(--navy-900);margin:22px 0 10px}
+
 /* reveal (progressive: only hidden when JS + motion allowed) */
 @media (prefers-reduced-motion:no-preference){
   .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease-out,transform .5s ease-out}
@@ -233,7 +261,7 @@ td:first-child{font-weight:600;color:var(--navy-900)}
   .hero .wrap{grid-template-columns:1fr;gap:44px;padding-block:72px 80px}
   .hero-art{display:none}
   .skills{grid-template-columns:1fr 1fr}
-  .grid3{grid-template-columns:1fr 1fr}
+  .grid3,.grid4{grid-template-columns:1fr 1fr}
   .cta .wrap{grid-template-columns:1fr}
   .cta .hero-cta{justify-content:flex-start}
 }
@@ -256,7 +284,11 @@ td:first-child{font-weight:600;color:var(--navy-900)}
   section{padding-block:64px}
   .sec-head{margin-bottom:40px}
   .brand-info{display:none}
-  .skills,.grid3{grid-template-columns:1fr}
+  .skills,.grid3,.grid4{grid-template-columns:1fr}
+  .prog-lbl{display:none}
+  .prog-list{gap:6px}
+  .prog-list a{padding:10px 12px}
+  .prog-list a small{display:none}
   .stat{padding:20px 18px}.stat b{font-size:36px}
   .spec,.outcome{padding:var(--space-5) 18px}
   .tab{flex:1 1 auto;padding:14px 18px}
@@ -277,6 +309,17 @@ td:first-child{font-weight:600;color:var(--navy-900)}
 <body>
 <a class="skip" href="#noi-dung">Bỏ qua đến nội dung</a>
 
+<nav class="prog" aria-label="Chọn lộ trình"><div class="wrap">
+  <span class="prog-lbl">Chọn lộ trình</span>
+  <div class="prog-list">
+    <a href="/2-thang" data-view="v-2t">2 tháng<small>40 giờ</small></a>
+    <a href="/6-thang" data-view="v-6t">6 tháng<small>120 giờ</small></a>
+    <a href="/12-thang" data-view="v-12t">12 tháng<small>240 giờ</small></a>
+    <a href="/" data-view="v-2y" aria-current="page">2 năm<small>24 tháng</small></a>
+  </div>
+</div></nav>
+
+<div class="view" id="v-2y" data-path="/" data-main="noi-dung" data-title="Lộ trình đào tạo IT 2 năm · UpNext" data-desc="Lộ trình đào tạo IT 24 tháng: Cơ bản học chung, Nâng cao theo 1 hướng chính + 1 hướng phụ (Backend / Frontend / Mobile), Thực hành dự án team từ requirements đến vận hành production.">
 <div class="util"><div class="wrap"><span>Chương trình đào tạo nội bộ · bản 05/10/2026</span><span>Tổng hợp từ tài liệu “Lộ trình đào tạo IT — 2 năm”</span></div></div>
 
 <div class="brand"><div class="wrap">
@@ -578,6 +621,501 @@ td:first-child{font-weight:600;color:var(--navy-900)}
   </div>
 </div></section>
 </main>
+</div>
+
+<!-- ===== Khoá 2 tháng: module B ===== -->
+<div class="view" id="v-2t" data-path="/2-thang" data-main="noi-dung-2t" data-title="Khoá 2 tháng · Xây dựng sản phẩm với AI · UpNext" data-desc="Khoá thực hành 2 tháng, 40 giờ cùng mentor: xây một sản phẩm web Golang + ReactJS với AI, hiểu cách frontend và backend giao tiếp qua REST API, queue, WebSocket." hidden>
+<div class="util"><div class="wrap"><span>Tuyển sinh khoá ngắn · bản 20/10/2026</span><span>Nhóm 1 mentor : 4–5 học viên</span></div></div>
+
+<div class="brand"><div class="wrap">
+  <a class="wordmark" href="#k2-top" aria-label="Khoá 2 tháng, về đầu trang">
+    <svg class="mk" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" fill="#233c65"/><rect x="7" y="9" width="13" height="6" rx="3" fill="#d8e2ec"/><rect x="7" y="21" width="22" height="6" rx="3" fill="#f2295b"/></svg>
+    <div><b>Lộ trình IT</b><span>2 tháng · 40 giờ mentor</span></div>
+  </a>
+  <div class="brand-info">
+    <div class="info"><b>8 tuần × 5 giờ</b><span>luyện tập cùng mentor</span></div>
+    <div class="info"><b>Golang + ReactJS</b><span>full-stack web</span></div>
+    <div class="info"><b>Đầu vào</b><span>đã biết 1 ngôn ngữ lập trình</span></div>
+  </div>
+</div></div>
+
+<nav class="main" aria-label="Mục lục khoá 2 tháng"><div class="wrap">
+  <div class="nav-scroll"><a href="#k2-tong-quan">Tổng quan</a><a href="#k2-dau-vao">Đầu vào</a><a href="#mod-b">8 tuần thực hành</a><a href="#mod-b-dau-ra">Đầu ra</a><a href="#tuyen-sinh">Tuyển sinh</a></div>
+  <a class="btn-outline" href="#k2-dau-vao">Điều kiện đầu vào</a>
+</div></nav>
+
+<main id="noi-dung-2t">
+<header class="hero on-dark" id="k2-top">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Khoá ngắn · Thực hành · Golang · ReactJS · AI</p>
+      <h1>Xây dựng sản phẩm với AI trong <em>2 tháng</em></h1>
+      <p class="lead">Không học lý thuyết dàn trải. Trong 8 tuần, mỗi nhóm 4–5 học viên cùng mentor xây một sản phẩm web hoàn chỉnh, mỗi tuần thêm một kiểu giao tiếp giữa frontend và backend: REST API, queue, WebSocket. AI là công cụ làm việc hằng ngày, nhưng mọi dòng code đều phải giải thích được.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#k2-dau-vao">Xem điều kiện đầu vào</a>
+        <a class="btn btn-ghost" href="#mod-b">Lộ trình 8 tuần</a>
+      </div>
+      <div class="hero-meta"><span class="chip">REST API</span><span class="chip">Redis Queue</span><span class="chip">WebSocket</span><span class="chip">Docker</span><span class="chip">AI coding assistant</span></div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>40</b><span>giờ luyện tập cùng mentor</span></div>
+      <div class="stat"><b>8</b><span>tuần, 5 giờ mentor mỗi tuần</span></div>
+      <div class="stat"><b>1:4–5</b><span>1 mentor kèm nhóm 4–5 học viên</span></div>
+      <div class="stat gate"><b>1</b><span>sản phẩm chạy trên môi trường demo</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="k2-tong-quan"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Tổng quan khoá 2 tháng</p><h2>Học bằng cách làm ra sản phẩm</h2></header>
+  <div class="pillars">
+    <article class="card pillar reveal"><h3>Thực hành, không học lý thuyết</h3><p>Không có buổi giảng lý thuyết riêng. Khái niệm chỉ được giải thích trên chính đoạn code học viên vừa viết.</p></article>
+    <article class="card pillar reveal"><h3>Một sản phẩm, nhiều kiểu giao tiếp</h3><p>Cả khoá làm một sản phẩm. Mỗi tuần thêm một cách frontend và backend nói chuyện với nhau: đồng bộ, bất đồng bộ, realtime.</p></article>
+    <article class="card pillar reveal"><h3>AI có kiểm soát</h3><p>Dùng AI để sinh code, viết test và review. Mentor hỏi ngẫu nhiên trên mọi pull request; code không giải thích được thì không được merge.</p></article>
+  </div>
+  <div class="tbl reveal mt"><table>
+    <thead><tr><th>Hạng mục</th><th>Chi tiết</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Hạng mục">Thời lượng</td><td data-label="Chi tiết">8 tuần</td></tr>
+      <tr><td data-label="Hạng mục">Giờ cùng mentor</td><td data-label="Chi tiết">40 giờ, 5 giờ mỗi tuần, luyện tập theo nhóm 4–5 học viên. Mỗi học viên có khoảng 1 giờ mỗi tuần để được review code và hỏi riêng.</td></tr>
+      <tr><td data-label="Hạng mục">Tự học</td><td data-label="Chi tiết">5–8 giờ mỗi tuần, bắt buộc</td></tr>
+      <tr><td data-label="Hạng mục">Công nghệ</td><td data-label="Chi tiết">Golang, ReactJS, SQL, Redis, Docker, AI coding assistant</td></tr>
+      <tr><td data-label="Hạng mục">Sản phẩm gợi ý</td><td data-label="Chi tiết">Ứng dụng quản lý công việc có thông báo realtime</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<section id="k2-dau-vao" class="tint"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Ràng buộc đầu vào · Khoá 2 tháng</p><h2>Đầu vào cao nhất trong 3 khoá ngắn</h2><p class="sub">40 giờ chỉ đủ để xây sản phẩm khi học viên đã viết được code. Khoá này không dạy lại lập trình cơ bản.</p></header>
+  <div class="tbl reveal"><table>
+    <thead><tr><th>Tiêu chí</th><th>Mức yêu cầu</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Tiêu chí">Lập trình</td><td data-label="Yêu cầu">Đã tự viết ít nhất 1 chương trình hoàn chỉnh khoảng 200 dòng trở lên bằng 1 ngôn ngữ bất kỳ; dùng được hàm, struct/class, xử lý lỗi, đọc/ghi file</td></tr>
+      <tr><td data-label="Tiêu chí">Golang</td><td data-label="Yêu cầu">Không bắt buộc. Nếu chưa biết, tự học Go Tour trước buổi đầu, khoảng 8–10 giờ</td></tr>
+      <tr><td data-label="Tiêu chí">Database</td><td data-label="Yêu cầu">Viết được SELECT, INSERT, UPDATE, DELETE và JOIN 2 bảng</td></tr>
+      <tr><td data-label="Tiêu chí">Web</td><td data-label="Yêu cầu">Đọc hiểu HTML/CSS/JS cơ bản; biết request/response và JSON là gì</td></tr>
+      <tr><td data-label="Tiêu chí">Git &amp; terminal</td><td data-label="Yêu cầu">clone, commit, push, tạo branch; điều hướng thư mục và chạy lệnh trong terminal</td></tr>
+      <tr><td data-label="Tiêu chí">Phù hợp với</td><td data-label="Yêu cầu">Fresher, sinh viên năm cuối đã làm đồ án, developer ở mảng khác muốn chuyển sang làm web</td></tr>
+    </tbody></table></div>
+  <div class="grid2 mt">
+    <div class="card outcome reveal"><p class="k">Bài kiểm tra đầu vào</p><h3>Làm bài tại nhà, rồi giải thích</h3>
+      <ul class="checks">
+        <li><span><b>2–3 giờ tại nhà:</b> chương trình CLI đọc file JSON, lọc dữ liệu và ghi kết quả ra file, kèm 1 câu SQL có JOIN</span></li>
+        <li><span><b>15 phút phỏng vấn</b> với mentor để giải thích code đã nộp</span></li>
+        <li><span>Bài do AI sinh ra mà không giải thích được thì không đạt</span></li>
+      </ul></div>
+    <div data-slot="dau-vao-chung"></div>
+  </div>
+</div></section>
+
+<div data-slot="mod-b" data-when="Tuần 1–8"></div>
+</main>
+</div>
+
+<!-- ===== Khoá 6 tháng: module A + B ===== -->
+<div class="view" id="v-6t" data-path="/6-thang" data-main="noi-dung-6t" data-title="Khoá 6 tháng · Nền tảng và thực hành · UpNext" data-desc="Khoá 6 tháng, 120 giờ cùng mentor: 80 giờ ôn nền tảng Golang, database, frontend, backend, giao thức mạng; 40 giờ xây sản phẩm web với AI." hidden>
+<div class="util"><div class="wrap"><span>Tuyển sinh khoá ngắn · bản 20/10/2026</span><span>Nhóm 1 mentor : 4–5 học viên</span></div></div>
+
+<div class="brand"><div class="wrap">
+  <a class="wordmark" href="#k6-top" aria-label="Khoá 6 tháng, về đầu trang">
+    <svg class="mk" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" fill="#233c65"/><rect x="7" y="9" width="13" height="6" rx="3" fill="#d8e2ec"/><rect x="7" y="21" width="22" height="6" rx="3" fill="#f2295b"/></svg>
+    <div><b>Lộ trình IT</b><span>6 tháng · 120 giờ mentor</span></div>
+  </a>
+  <div class="brand-info">
+    <div class="info"><b>80 giờ nền tảng</b><span>tháng 1–4</span></div>
+    <div class="info"><b>40 giờ thực hành</b><span>tháng 5–6, như khoá 2 tháng</span></div>
+    <div class="info"><b>Đầu vào</b><span>đã học lập trình cơ bản</span></div>
+  </div>
+</div></div>
+
+<nav class="main" aria-label="Mục lục khoá 6 tháng"><div class="wrap">
+  <div class="nav-scroll"><a href="#k6-tong-quan">Tổng quan</a><a href="#k6-dau-vao">Đầu vào</a><a href="#mod-a">Nền tảng</a><a href="#mod-b">Thực hành</a><a href="#mod-b-dau-ra">Đầu ra</a><a href="#tuyen-sinh">Tuyển sinh</a></div>
+  <a class="btn-outline" href="#k6-dau-vao">Điều kiện đầu vào</a>
+</div></nav>
+
+<main id="noi-dung-6t">
+<header class="hero on-dark" id="k6-top">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Khoá 6 tháng · Nền tảng + thực hành · Golang · ReactJS</p>
+      <h1>Ôn chắc nền tảng, rồi xây sản phẩm trong <em>6 tháng</em></h1>
+      <p class="lead">4 tháng đầu ôn lại những gì một developer web phải nắm: ngôn ngữ, database, frontend, backend và các giao thức mạng phổ biến. 2 tháng cuối học đúng chương trình thực hành của khoá 2 tháng: xây một sản phẩm web hoàn chỉnh cùng mentor, dùng AI có kiểm soát.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#k6-dau-vao">Xem điều kiện đầu vào</a>
+        <a class="btn btn-ghost" href="#k6-tong-quan">Lộ trình 6 tháng</a>
+      </div>
+      <div class="hero-meta"><span class="chip">Golang</span><span class="chip">SQL</span><span class="chip">ReactJS</span><span class="chip">HTTP/TCP/DNS</span><span class="chip">Redis Queue</span><span class="chip">WebSocket</span></div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>120</b><span>giờ luyện tập cùng mentor</span></div>
+      <div class="stat"><b>80+40</b><span>giờ nền tảng + giờ thực hành sản phẩm</span></div>
+      <div class="stat"><b>1:4–5</b><span>1 mentor kèm nhóm 4–5 học viên</span></div>
+      <div class="stat gate"><b>1</b><span>điểm kiểm tra giữa khoá, cuối tháng 4</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="k6-tong-quan"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Tổng quan · 6 tháng</p><h2>Hai module nối tiếp</h2><p class="sub">Đầu ra của module Nền tảng chính là điều kiện đầu vào của module Thực hành. Đường đỏ là điểm kiểm tra.</p></header>
+  <div class="card reveal" style="padding:28px">
+    <div class="gantt" role="img" aria-label="Biểu đồ 6 tháng: Nền tảng tháng 1–4, Thực hành tháng 5–6, điểm kiểm tra cuối tháng 4">
+      <div class="g-axis" aria-hidden="true"><div></div><div class="ticks">
+        <span class="first" style="left:0%">T1</span><span style="left:66.6667%">T5</span><span class="last" style="left:100%">T6</span>
+        <b class="gate-lbl last" style="left:66.6667%">Mốc kiểm tra</b><b class="gate-lbl last" style="left:100%">Hoàn thành</b>
+      </div></div>
+      <div class="g-row"><div class="lab">Module A · Nền tảng<small>80 giờ · tháng 1–4</small></div><div class="g-track"><i class="gl" style="left:66.6667%"></i><i class="gl end" style="left:100%"></i><div class="bar" style="left:0%;width:calc(66.6667% - 3px)"><span>Language, database, frontend, backend, mạng</span></div></div></div>
+      <div class="g-row"><div class="lab">Module B · Thực hành<small>40 giờ · tháng 5–6</small></div><div class="g-track"><i class="gl" style="left:66.6667%"></i><i class="gl end" style="left:100%"></i><div class="bar p2" style="left:66.6667%;width:calc(33.3333% - 3px)"><span>Xây sản phẩm với AI</span></div></div></div>
+      <div class="g-row sep"><div class="lab">AI<small>xuyên suốt</small></div><div class="g-track"><i class="gl" style="left:66.6667%"></i><i class="gl end" style="left:100%"></i><div class="bar lite" style="left:0%;width:calc(66.6667% - 3px)"><span>Công cụ học</span></div><div class="bar mid" style="left:66.6667%;width:calc(33.3333% - 3px)"><span>Công cụ phát triển</span></div></div></div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--navy-700)"></i>Module A</span>
+      <span><i style="background:var(--navy-500)"></i>Module B</span>
+      <span><i style="background:var(--surface-blue-100)"></i>Kỹ năng mức nhập môn</span>
+      <span><i style="background:var(--navy-300)"></i>Kỹ năng mức nâng cao</span>
+      <span><i style="width:2px;background:var(--accent-crimson)"></i>Điểm kiểm tra</span>
+    </div>
+  </div>
+  <div class="tbl reveal mt"><table>
+    <thead><tr><th>Hạng mục</th><th>Chi tiết</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Hạng mục">Thời lượng</td><td data-label="Chi tiết">6 tháng</td></tr>
+      <tr><td data-label="Hạng mục">Giờ cùng mentor</td><td data-label="Chi tiết">120 giờ, khoảng 5 giờ mỗi tuần, luyện tập theo nhóm 4–5 học viên</td></tr>
+      <tr><td data-label="Hạng mục">Tự học</td><td data-label="Chi tiết">5–8 giờ mỗi tuần, bắt buộc</td></tr>
+      <tr><td data-label="Hạng mục">Công nghệ</td><td data-label="Chi tiết">Golang, ReactJS, SQL, Redis, Docker, AI coding assistant</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<section id="k6-dau-vao" class="tint"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Ràng buộc đầu vào · Khoá 6 tháng</p><h2>Đã học lập trình cơ bản</h2><p class="sub">80 giờ nền tảng là để ôn và hệ thống lại, không đủ để học lập trình từ con số 0. Khoá không nhận người chưa từng lập trình.</p></header>
+  <div class="tbl reveal"><table>
+    <thead><tr><th>Tiêu chí</th><th>Mức yêu cầu</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Tiêu chí">Lập trình</td><td data-label="Yêu cầu">Đã học biến, điều kiện, vòng lặp, hàm, mảng với 1 ngôn ngữ bất kỳ; giải được bài toán đơn giản mà không cần xem lời giải</td></tr>
+      <tr><td data-label="Tiêu chí">Database, Web, Git</td><td data-label="Yêu cầu">Không bắt buộc, module Nền tảng sẽ ôn lại</td></tr>
+      <tr><td data-label="Tiêu chí">Phù hợp với</td><td data-label="Yêu cầu">Sinh viên IT từ năm 2, người đã tự học lập trình nền tảng</td></tr>
+    </tbody></table></div>
+  <div class="grid2 mt">
+    <div class="stack-col">
+      <div class="card outcome reveal"><p class="k">Bài kiểm tra đầu vào</p><h3>60 phút, không dùng AI</h3>
+        <ul class="checks">
+          <li><span>Giải 2 bài lập trình cơ bản, ngôn ngữ tự chọn</span></li>
+        </ul></div>
+      <div class="card outcome reveal"><p class="k">Điểm kiểm tra giữa khoá</p><h3>Cuối tháng 4, trước khi sang Thực hành</h3>
+        <ul class="checks">
+          <li><span>Làm bài kiểm tra đầu vào của khoá 2 tháng</span></li>
+          <li><span>Chưa đạt thì học bù phần còn thiếu trước khi sang module Thực hành</span></li>
+        </ul></div>
+    </div>
+    <div data-slot="dau-vao-chung"></div>
+  </div>
+</div></section>
+
+<div data-slot="mod-a" data-when="Tháng 1–4"></div>
+<div data-slot="mod-b" data-when="Tháng 5–6"></div>
+</main>
+</div>
+
+<!-- ===== Khoá 12 tháng: module A + B + C ===== -->
+<div class="view" id="v-12t" data-path="/12-thang" data-main="noi-dung-12t" data-title="Khoá 12 tháng · Từ requirements đến production · UpNext" data-desc="Khoá 12 tháng, 240 giờ cùng mentor: nền tảng, thực hành sản phẩm với AI, kỹ năng giao tiếp, lấy và phân tích yêu cầu, thiết kế hệ thống, deploy production." hidden>
+<div class="util"><div class="wrap"><span>Tuyển sinh khoá ngắn · bản 20/10/2026</span><span>Nhóm 1 mentor : 4–5 học viên</span></div></div>
+
+<div class="brand"><div class="wrap">
+  <a class="wordmark" href="#k12-top" aria-label="Khoá 12 tháng, về đầu trang">
+    <svg class="mk" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" fill="#233c65"/><rect x="7" y="9" width="13" height="6" rx="3" fill="#d8e2ec"/><rect x="7" y="21" width="22" height="6" rx="3" fill="#f2295b"/></svg>
+    <div><b>Lộ trình IT</b><span>12 tháng · 240 giờ mentor</span></div>
+  </a>
+  <div class="brand-info">
+    <div class="info"><b>Bao gồm khoá 6 tháng</b><span>nền tảng + thực hành</span></div>
+    <div class="info"><b>120 giờ chuyên nghiệp</b><span>requirements đến production</span></div>
+    <div class="info"><b>Đã đi làm 1 năm+</b><span>có thể vào thẳng tháng 7</span></div>
+  </div>
+</div></div>
+
+<nav class="main" aria-label="Mục lục khoá 12 tháng"><div class="wrap">
+  <div class="nav-scroll"><a href="#k12-tong-quan">Tổng quan</a><a href="#k12-dau-vao">Đầu vào</a><a href="#mod-a">Nền tảng</a><a href="#mod-b">Thực hành</a><a href="#mod-c">Requirements đến production</a><a href="#mod-c-dau-ra">Đầu ra</a><a href="#tuyen-sinh">Tuyển sinh</a></div>
+  <a class="btn-outline" href="#k12-dau-vao">Điều kiện đầu vào</a>
+</div></nav>
+
+<main id="noi-dung-12t">
+<header class="hero on-dark" id="k12-top">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Khoá 12 tháng · Nền tảng vững chắc · Golang · ReactJS</p>
+      <h1>Từ requirements đến production trong <em>12 tháng</em></h1>
+      <p class="lead">6 tháng đầu học trọn khoá 6 tháng: ôn nền tảng rồi xây sản phẩm với AI. 6 tháng sau làm việc như một developer thật: giao tiếp trong công việc, lấy và phân tích yêu cầu khách hàng, thiết kế hệ thống, rồi đưa sản phẩm lên production và vận hành.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#k12-dau-vao">Xem điều kiện đầu vào</a>
+        <a class="btn btn-ghost" href="#k12-tong-quan">Lộ trình 12 tháng</a>
+      </div>
+      <div class="hero-meta"><span class="chip">Giao tiếp</span><span class="chip">Requirements</span><span class="chip">System design</span><span class="chip">CI/CD</span><span class="chip">Monitoring</span><span class="chip">AI</span></div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>240</b><span>giờ luyện tập cùng mentor</span></div>
+      <div class="stat"><b>3</b><span>module: Nền tảng, Thực hành, Requirements đến production</span></div>
+      <div class="stat"><b>1:4–5</b><span>1 mentor kèm nhóm 4–5 học viên</span></div>
+      <div class="stat gate"><b>1</b><span>sản phẩm chạy trên production</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="k12-tong-quan"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Tổng quan · 12 tháng</p><h2>Ba module nối tiếp</h2><p class="sub">Đầu ra của module trước là điều kiện đầu vào của module sau. Đường đỏ là điểm kiểm tra giữa các module.</p></header>
+  <div class="card reveal" style="padding:28px">
+    <div class="gantt" role="img" aria-label="Biểu đồ 12 tháng: Nền tảng tháng 1–4, Thực hành tháng 5–6, Requirements đến production tháng 7–12">
+      <div class="g-axis" aria-hidden="true"><div></div><div class="ticks">
+        <span class="first" style="left:0%">T1</span><span style="left:33.3333%">T5</span><span style="left:50%">T7</span><span class="last" style="left:100%">T12</span>
+        <b class="gate-lbl last" style="left:33.3333%">Mốc 1</b><b class="gate-lbl first" style="left:50%">Mốc 2</b><b class="gate-lbl last" style="left:100%">Production</b>
+      </div></div>
+      <div class="g-row"><div class="lab">Module A · Nền tảng<small>80 giờ · tháng 1–4</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:50%"></i><i class="gl end" style="left:100%"></i><div class="bar" style="left:0%;width:calc(33.3333% - 3px)"><span>Nền tảng</span></div></div></div>
+      <div class="g-row"><div class="lab">Module B · Thực hành<small>40 giờ · tháng 5–6</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:50%"></i><i class="gl end" style="left:100%"></i><div class="bar p2" style="left:33.3333%;width:calc(16.6667% - 3px)"><span>Sản phẩm</span></div></div></div>
+      <div class="g-row"><div class="lab">Module C · Requirements đến production<small>120 giờ · tháng 7–12</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:50%"></i><i class="gl end" style="left:100%"></i><div class="bar p3" style="left:50%;width:calc(50% - 3px)"><span>Giao tiếp, requirements, thiết kế, production</span></div></div></div>
+      <div class="g-row sep"><div class="lab">AI<small>xuyên suốt</small></div><div class="g-track"><i class="gl" style="left:33.3333%"></i><i class="gl" style="left:50%"></i><i class="gl end" style="left:100%"></i><div class="bar lite" style="left:0%;width:calc(33.3333% - 3px)"><span>Công cụ học</span></div><div class="bar mid" style="left:33.3333%;width:calc(16.6667% - 3px)"><span>Phát triển</span></div><div class="bar" style="left:50%;width:calc(50% - 3px)"><span>Có kiểm soát trong dự án</span></div></div></div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--navy-700)"></i>Module A</span>
+      <span><i style="background:var(--navy-500)"></i>Module B</span>
+      <span><i style="background:var(--navy-900)"></i>Module C</span>
+      <span><i style="background:var(--surface-blue-100)"></i>Kỹ năng mức nhập môn</span>
+      <span><i style="background:var(--navy-300)"></i>Kỹ năng mức nâng cao</span>
+      <span><i style="width:2px;background:var(--accent-crimson)"></i>Điểm kiểm tra</span>
+    </div>
+  </div>
+  <div class="tbl reveal mt"><table>
+    <thead><tr><th>Hạng mục</th><th>Chi tiết</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Hạng mục">Thời lượng</td><td data-label="Chi tiết">12 tháng</td></tr>
+      <tr><td data-label="Hạng mục">Giờ cùng mentor</td><td data-label="Chi tiết">240 giờ, khoảng 5 giờ mỗi tuần, luyện tập theo nhóm 4–5 học viên</td></tr>
+      <tr><td data-label="Hạng mục">Tự học</td><td data-label="Chi tiết">5–8 giờ mỗi tuần; 6–8 giờ ở module C vì phải viết tài liệu yêu cầu và thiết kế</td></tr>
+      <tr><td data-label="Hạng mục">Công nghệ</td><td data-label="Chi tiết">Golang, ReactJS, SQL, Redis, Docker, CI/CD, cloud, AI coding assistant</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<section id="k12-dau-vao" class="tint"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Ràng buộc đầu vào · Khoá 12 tháng</p><h2>Nền tảng như khoá 6 tháng, cộng cam kết dài hạn</h2></header>
+  <div class="tbl reveal"><table>
+    <thead><tr><th>Tiêu chí</th><th>Mức yêu cầu</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Tiêu chí">Lập trình</td><td data-label="Yêu cầu">Như khoá 6 tháng: đã học biến, điều kiện, vòng lặp, hàm, mảng; giải được bài toán đơn giản không cần xem lời giải</td></tr>
+      <tr><td data-label="Tiêu chí">Giao tiếp</td><td data-label="Yêu cầu">Viết được email, tin nhắn công việc rõ ràng bằng tiếng Việt; sẵn sàng thuyết trình và làm việc trực tiếp với “khách hàng” (mentor đóng vai)</td></tr>
+      <tr><td data-label="Tiêu chí">Cam kết</td><td data-label="Yêu cầu">12 tháng liên tục; giờ tự học ở module C tăng lên khoảng 6–8 giờ mỗi tuần</td></tr>
+      <tr><td data-label="Tiêu chí">Phù hợp với</td><td data-label="Yêu cầu">Người muốn đi làm ở vị trí developer có tiếp xúc khách hàng, hoặc hướng tới vai trò lead, BA kỹ thuật về sau</td></tr>
+    </tbody></table></div>
+  <div class="grid2 mt">
+    <div class="stack-col">
+      <div class="card outcome reveal"><p class="k">Bài kiểm tra đầu vào</p><h3>Như khoá 6 tháng, cộng phỏng vấn</h3>
+        <ul class="checks">
+          <li><span>Giải 2 bài lập trình cơ bản trong 60 phút, không dùng AI</span></li>
+          <li><span>15 phút phỏng vấn về động lực và khả năng cam kết thời gian</span></li>
+        </ul></div>
+      <div class="card outcome reveal"><p class="k">Điểm kiểm tra giữa khoá</p><h3>Hai điểm chặn</h3>
+        <ul class="checks">
+          <li><span><b>Cuối tháng 4:</b> làm bài kiểm tra đầu vào của khoá 2 tháng; chưa đạt thì học bù trước khi sang module B</span></li>
+          <li><span><b>Cuối tháng 6:</b> sản phẩm của module B phải chạy được trên môi trường demo mới vào module C</span></li>
+        </ul></div>
+    </div>
+    <div data-slot="dau-vao-chung"></div>
+  </div>
+
+  <div class="card reveal mt" id="k12-vao-thang" style="padding:28px"><h3><span class="no">Dành cho người đã đi làm</span>Vào thẳng module C, sau khi qua đánh giá</h3>
+    <p style="margin-top:14px">Điều kiện đăng ký: đã đi làm lập trình từ 1 năm trở lên. Số năm kinh nghiệm chỉ cho phép đăng ký đánh giá, không thay thế đánh giá, vì 1 năm đi làm chưa chắc đã có nền tảng tốt. Bài đánh giá kiểm tra đúng đầu ra của module A và module B.</p>
+    <div class="tbl mt"><table>
+      <thead><tr><th>Phần</th><th>Nội dung</th><th>Kiểm tra</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Phần">Bài làm tại nhà<br>4–6 giờ, được dùng AI</td><td data-label="Nội dung">REST API bằng Golang có CRUD và đăng nhập JWT; 1 tác vụ bất đồng bộ qua Redis; 1 màn hình React gọi API; chạy toàn bộ bằng Docker Compose; có test cho phần nghiệp vụ chính</td><td data-label="Kiểm tra">Đầu ra module B</td></tr>
+        <tr><td data-label="Phần">Phỏng vấn kỹ thuật<br>45–60 phút</td><td data-label="Nội dung">Giải thích code đã nộp và sửa trực tiếp 1 lỗi mentor đưa vào; luồng HTTP request từ browser đến database; khi nào dùng sync, async, WebSocket; index và transaction; DNS, HTTPS, TCP ở mức giải thích được</td><td data-label="Kiểm tra">Đầu ra module A và B</td></tr>
+      </tbody></table></div>
+    <p class="sub-h">Kết quả</p>
+    <ul class="checks">
+      <li><span><b>Đạt cả hai phần:</b> vào thẳng module C, 120 giờ, khoảng 6 tháng</span></li>
+      <li><span><b>Bài làm đạt nhưng phỏng vấn hổng nền tảng:</b> học bù các phần còn thiếu của module A rồi vào module C</span></li>
+      <li><span><b>Bài làm không đạt:</b> học module B trước, hoặc học khoá 12 tháng từ đầu nếu hổng cả nền tảng</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<div data-slot="mod-a" data-when="Tháng 1–4"></div>
+<div data-slot="mod-b" data-when="Tháng 5–6"></div>
+<div data-slot="mod-c" data-when="Tháng 7–12"></div>
+</main>
+</div>
+
+<!-- ===== Dùng chung cho mọi lộ trình ===== -->
+<section id="so-sanh"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">So sánh 4 lộ trình</p><h2>Chọn lộ trình theo điểm xuất phát</h2><p class="sub">Ba khoá ngắn xếp chồng lên nhau: khoá 6 tháng chứa trọn khoá 2 tháng, khoá 12 tháng chứa trọn khoá 6 tháng.</p></header>
+  <div class="tbl reveal"><table>
+    <thead><tr><th>Lộ trình</th><th>Thời lượng</th><th>Giờ cùng mentor</th><th>Đầu vào</th><th>Đầu ra</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Lộ trình"><a href="/2-thang" data-view="v-2t">Khoá 2 tháng</a></td><td data-label="Thời lượng">8 tuần</td><td data-label="Giờ mentor">40 giờ</td><td data-label="Đầu vào">Đã biết 1 ngôn ngữ, SQL cơ bản, Git</td><td data-label="Đầu ra">1 sản phẩm web chạy trên môi trường demo</td></tr>
+      <tr><td data-label="Lộ trình"><a href="/6-thang" data-view="v-6t">Khoá 6 tháng</a></td><td data-label="Thời lượng">6 tháng</td><td data-label="Giờ mentor">120 giờ</td><td data-label="Đầu vào">Đã học lập trình cơ bản</td><td data-label="Đầu ra">Nền tảng vững + 1 sản phẩm web chạy trên môi trường demo</td></tr>
+      <tr><td data-label="Lộ trình"><a href="/12-thang" data-view="v-12t">Khoá 12 tháng</a></td><td data-label="Thời lượng">12 tháng</td><td data-label="Giờ mentor">240 giờ</td><td data-label="Đầu vào">Đã học lập trình cơ bản, cam kết 12 tháng</td><td data-label="Đầu ra">Sản phẩm chạy trên production, có bộ tài liệu từ requirements đến bàn giao</td></tr>
+      <tr><td data-label="Lộ trình"><a href="/" data-view="v-2y">Lộ trình 2 năm</a></td><td data-label="Thời lượng">24 tháng</td><td data-label="Giờ mentor">Theo chương trình nội bộ</td><td data-label="Đầu vào">Học từ nền tảng</td><td data-label="Đầu ra">Dự án team chạy trên internet, có CI/CD, monitoring</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<section id="tuyen-sinh" class="band"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Quy trình tuyển sinh khoá ngắn</p><h2>Bốn bước để vào lớp</h2></header>
+  <div class="grid4">
+    <article class="card step reveal"><span class="n">1</span><h3>Chọn lộ trình</h3><p>Đối chiếu ràng buộc đầu vào của từng khoá với trình độ hiện tại và thời gian có thể cam kết mỗi tuần.</p></article>
+    <article class="card step reveal"><span class="n">2</span><h3>Làm bài kiểm tra</h3><p>Làm bài kiểm tra đầu vào của khoá đã chọn. Người đã đi làm muốn vào thẳng module C làm bài đánh giá riêng.</p></article>
+    <article class="card step reveal"><span class="n">3</span><h3>Phỏng vấn với mentor</h3><p>Giải thích bài đã nộp. Bài do AI sinh ra mà không giải thích được thì không đạt.</p></article>
+    <article class="card step reveal"><span class="n">4</span><h3>Xếp nhóm</h3><p>Đạt yêu cầu thì được xếp vào nhóm 4–5 học viên cùng 1 mentor và nhận lịch luyện tập.</p></article>
+  </div>
+</div></section>
+
+<!-- ===== Module dùng chung: JS chuyển vào view đang hiển thị qua data-slot ===== -->
+<div id="modules">
+<div class="card reveal" id="dau-vao-chung"><h3><span class="no">Áp dụng cho cả 3 khoá</span>Điều kiện chung</h3>
+  <ul class="checks">
+    <li><span><b>Máy tính:</b> laptop RAM tối thiểu 8GB, khuyến nghị 16GB, chạy được Docker; internet ổn định</span></li>
+    <li><span><b>AI:</b> có tài khoản AI coding assistant (Claude, Copilot hoặc tương đương) trước buổi đầu</span></li>
+    <li><span><b>Tiếng Anh:</b> đọc được tài liệu kỹ thuật, được phép dùng công cụ dịch</span></li>
+    <li><span><b>Thời gian:</b> 5 giờ cùng mentor + 5–8 giờ tự học mỗi tuần. Vắng quá 20% giờ mentor thì không xét hoàn thành khoá</span></li>
+  </ul></div>
+
+<section id="mod-a"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Module A · <span class="mod-when"></span> · 80 giờ</p><h2>Nền tảng</h2><p class="sub">Ôn và hệ thống lại kiến thức cơ bản của một developer web, mỗi phần đều có bài tập code thật.</p></header>
+  <div class="grid3">
+    <div class="card reveal"><h3><span class="no">A.1 · 20 giờ</span>Golang</h3>
+      <ul class="checks">
+        <li><span>Cú pháp, kiểu dữ liệu, struct, interface, xử lý lỗi</span></li>
+        <li><span>Slice, map, goroutine và channel cơ bản</span></li>
+        <li><span>Package, module, viết CLI tool</span></li>
+        <li><span>Unit test với package <code>testing</code></span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">A.2 · 15 giờ</span>Database &amp; SQL</h3>
+      <ul class="checks">
+        <li><span>Thiết kế bảng, khoá chính, khoá ngoại, chuẩn hoá cơ bản</span></li>
+        <li><span>CRUD, JOIN, GROUP BY, subquery</span></li>
+        <li><span>Index và transaction: hiểu khi nào cần</span></li>
+        <li><span>Kết nối database từ Golang</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">A.3 · 15 giờ</span>Frontend</h3>
+      <ul class="checks">
+        <li><span>HTML semantic, CSS flexbox, grid, responsive</span></li>
+        <li><span>JavaScript: DOM, event, fetch, async/await</span></li>
+        <li><span>ReactJS cơ bản: component, props, state, useEffect</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">A.4 · 15 giờ</span>Backend</h3>
+      <ul class="checks">
+        <li><span>HTTP server với <code>net/http</code>, routing, middleware</span></li>
+        <li><span>Đọc/ghi JSON, validation dữ liệu đầu vào</span></li>
+        <li><span>Phân tầng handler – service – repository</span></li>
+        <li><span>Logging, cấu hình qua biến môi trường</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">A.5 · 10 giờ</span>Giao thức mạng</h3>
+      <ul class="checks">
+        <li><span>TCP/IP, port, DNS phân giải tên miền</span></li>
+        <li><span>HTTP: method, header, status code, cookie</span></li>
+        <li><span>HTTPS và TLS: chứng chỉ, mã hoá ở mức khái niệm</span></li>
+        <li><span>WebSocket khác HTTP ở điểm nào</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">A.6 · 5 giờ</span>Git &amp; Linux</h3>
+      <ul class="checks">
+        <li><span>Commit, branch, merge, pull request</span></li>
+        <li><span>Terminal, quyền file, process, ssh</span></li>
+      </ul></div>
+  </div>
+  <div class="card outcome reveal mt"><p class="k">Đầu ra module A · Điểm kiểm tra</p><h3>Sang module Thực hành khi</h3>
+    <ul class="checks">
+      <li><span>Đạt bài kiểm tra đầu vào của khoá 2 tháng</span></li>
+      <li><span>Tự build 1 Golang API CRUD có kết nối database và 1 trang React gọi API đó</span></li>
+      <li><span>Giải thích được luồng đi của 1 HTTP request từ browser đến database và quay lại</span></li>
+    </ul></div>
+</div></section>
+
+<section id="mod-b" class="band"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Module B · <span class="mod-when"></span> · 40 giờ</p><h2>Xây dựng sản phẩm với AI</h2><p class="sub">8 tuần, mỗi tuần 5 giờ cùng mentor. Cả khoá làm một sản phẩm, mỗi tuần thêm một kiểu giao tiếp giữa frontend và backend.</p></header>
+  <div class="tbl reveal"><table>
+    <thead><tr><th>Tuần</th><th>Thực hành</th><th>Kết quả cuối tuần</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Tuần">Tuần 1</td><td data-label="Thực hành"><b>Tổ chức dự án:</b> cấu trúc repo backend/frontend, branch và pull request, issue board, cấu hình môi trường, thiết lập AI coding assistant và quy tắc dùng</td><td data-label="Kết quả">Repo chạy được, có README và quy trình PR</td></tr>
+      <tr><td data-label="Tuần">Tuần 2</td><td data-label="Thực hành"><b>Giao tiếp đồng bộ:</b> HTTP, REST API CRUD, status code, validation, tài liệu OpenAPI</td><td data-label="Kết quả">API CRUD có tài liệu OpenAPI</td></tr>
+      <tr><td data-label="Tuần">Tuần 3</td><td data-label="Thực hành"><b>Frontend gọi API:</b> React fetch, loading/error state, đăng nhập JWT</td><td data-label="Kết quả">Giao diện đăng nhập và quản lý dữ liệu</td></tr>
+      <tr><td data-label="Tuần">Tuần 4</td><td data-label="Thực hành"><b>Giao tiếp bất đồng bộ:</b> background job, message queue bằng Redis Streams, xử lý retry</td><td data-label="Kết quả">1 tác vụ chạy nền qua Redis</td></tr>
+      <tr><td data-label="Tuần">Tuần 5</td><td data-label="Thực hành"><b>Realtime:</b> WebSocket, so sánh với polling và SSE</td><td data-label="Kết quả">Thông báo realtime trên giao diện</td></tr>
+      <tr><td data-label="Tuần">Tuần 6</td><td data-label="Thực hành"><b>Test và đóng gói:</b> dùng AI viết và review test, Docker Compose cho toàn bộ hệ thống</td><td data-label="Kết quả">Một lệnh chạy cả hệ thống, có test</td></tr>
+      <tr><td data-label="Tuần">Tuần 7</td><td data-label="Thực hành"><b>Deploy:</b> đưa sản phẩm lên môi trường demo</td><td data-label="Kết quả">Sản phẩm truy cập được qua internet</td></tr>
+      <tr><td data-label="Tuần">Tuần 8</td><td data-label="Thực hành"><b>Demo:</b> vẽ và giải thích luồng giao tiếp frontend–backend của chính sản phẩm</td><td data-label="Kết quả">Buổi demo và đánh giá cuối khoá</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub-h" style="margin-top:var(--space-7);text-align:center;font-size:20px">Các kiểu giao tiếp frontend–backend học qua sản phẩm</h3>
+  <div class="grid4">
+    <article class="card pattern reveal"><span class="k">Đồng bộ</span><h3>HTTP / REST API</h3><p>Client gửi request và chờ phản hồi. <b>Dùng khi</b> cần kết quả ngay: đăng nhập, xem và sửa dữ liệu.</p></article>
+    <article class="card pattern reveal"><span class="k">Bất đồng bộ</span><h3>Queue với Redis</h3><p>API nhận việc, trả về ngay, worker xử lý sau. <b>Dùng khi</b> việc chạy lâu hoặc có thể thử lại: gửi email, xử lý file.</p></article>
+    <article class="card pattern reveal"><span class="k">Realtime</span><h3>WebSocket</h3><p>Kết nối hai chiều luôn mở. <b>Dùng khi</b> server cần đẩy dữ liệu xuống ngay: thông báo, chat, cập nhật trạng thái.</p></article>
+    <article class="card pattern reveal"><span class="k">Lựa chọn khác</span><h3>Polling / SSE</h3><p>Client hỏi lại định kỳ, hoặc server đẩy một chiều. <b>Dùng khi</b> cập nhật không cần tức thì hoặc chỉ cần một chiều.</p></article>
+  </div>
+
+  <div class="grid2 mt">
+    <div class="card reveal"><h3><span class="no">Quy tắc dùng AI</span>AI viết nhanh, học viên chịu trách nhiệm</h3>
+      <ul class="checks">
+        <li><span>Được dùng AI để sinh code, refactor, viết test và review</span></li>
+        <li><span>Không commit code chưa chạy thử và chưa đọc hiểu</span></li>
+        <li><span>Mentor hỏi ngẫu nhiên trên mọi pull request; không giải thích được thì không merge</span></li>
+      </ul></div>
+    <div class="card outcome reveal" id="mod-b-dau-ra"><p class="k">Đầu ra module B</p><h3>Hoàn thành khi</h3>
+      <ul class="checks">
+        <li><span>Sản phẩm frontend + backend chạy trên môi trường demo bằng Docker Compose</span></li>
+        <li><span>Có đủ REST API, tác vụ bất đồng bộ qua Redis và WebSocket</span></li>
+        <li><span>Tự vẽ và giải thích sơ đồ luồng giao tiếp của sản phẩm</span></li>
+        <li><span>Tự sửa 1 lỗi do mentor cố ý đưa vào trong buổi đánh giá</span></li>
+        <li><span>Lịch sử Git có pull request và review</span></li>
+      </ul></div>
+  </div>
+</div></section>
+
+<section id="mod-c" class="tint"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Module C · <span class="mod-when"></span> · 120 giờ</p><h2>Từ requirements đến production</h2><p class="sub">Dự án cuối khoá đi xuyên suốt module: bắt đầu bằng buổi lấy yêu cầu với “khách hàng” là mentor, kết thúc bằng sản phẩm chạy trên production.</p></header>
+  <div class="grid2">
+    <div class="card reveal"><h3><span class="no">C.1 · 15 giờ</span>Kỹ năng giao tiếp trong công việc</h3>
+      <ul class="checks">
+        <li><span>Viết email, tin nhắn báo cáo tiến độ và báo rủi ro</span></li>
+        <li><span>Họp: chuẩn bị agenda, ghi biên bản, chốt việc cần làm</span></li>
+        <li><span>Trình bày giải pháp kỹ thuật cho người không làm kỹ thuật</span></li>
+        <li><span>Nhận và phản hồi góp ý trong code review</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">C.2 · 25 giờ</span>Lấy và phân tích yêu cầu khách hàng</h3>
+      <ul class="checks">
+        <li><span>Phỏng vấn khách hàng: chuẩn bị câu hỏi, hỏi mở, xác nhận lại</span></li>
+        <li><span>Viết user story và acceptance criteria</span></li>
+        <li><span>Xác định scope, ưu tiên MoSCoW, quản lý thay đổi yêu cầu</span></li>
+        <li><span>Viết SRS/spec rút gọn</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">C.3 · 35 giờ</span>Phân tích và thiết kế hệ thống</h3>
+      <ul class="checks">
+        <li><span>Sơ đồ use case, sequence, ERD</span></li>
+        <li><span>Thiết kế API và schema database</span></li>
+        <li><span>Chọn sync, async hay realtime cho từng luồng nghiệp vụ</span></li>
+        <li><span>Caching, queue, mở rộng hệ thống ở mức cơ bản</span></li>
+        <li><span>Ước lượng effort, viết design doc và bảo vệ thiết kế</span></li>
+      </ul></div>
+    <div class="card reveal"><h3><span class="no">C.4 · 30 giờ</span>Deploy &amp; vận hành production</h3>
+      <ul class="checks">
+        <li><span><b>CI/CD:</b> pipeline build – test – deploy với GitHub Actions</span></li>
+        <li><span>Deploy lên cloud/VPS, domain, HTTPS</span></li>
+        <li><span>Logging, monitoring, cảnh báo</span></li>
+        <li><span>Bảo mật cơ bản: quản lý secret, OWASP Top 10</span></li>
+        <li><span>Release, versioning, rollback, xử lý sự cố</span></li>
+      </ul></div>
+  </div>
+  <div class="card reveal mt"><h3><span class="no">C.5 · 15 giờ</span>Dự án cuối khoá &amp; trình bày</h3>
+    <div class="tbl mt"><table>
+      <thead><tr><th>Tháng</th><th>Dự án cuối khoá</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Tháng">Tháng 7</td><td data-label="Dự án">Lấy yêu cầu từ “khách hàng”, viết biên bản và user story</td></tr>
+        <tr><td data-label="Tháng">Tháng 8</td><td data-label="Dự án">Phân tích yêu cầu, chốt scope, viết spec rút gọn</td></tr>
+        <tr><td data-label="Tháng">Tháng 9</td><td data-label="Dự án">Thiết kế hệ thống, bảo vệ design doc</td></tr>
+        <tr><td data-label="Tháng">Tháng 10–11</td><td data-label="Dự án">Xây dựng sản phẩm, dựng CI/CD, báo cáo tiến độ hằng tuần</td></tr>
+        <tr><td data-label="Tháng">Tháng 12</td><td data-label="Dự án">Lên production, vận hành, demo và bàn giao</td></tr>
+      </tbody></table></div></div>
+  <div class="card outcome reveal mt" id="mod-c-dau-ra"><p class="k">Đầu ra module C · Hoàn thành khoá 12 tháng</p><h3>Hoàn thành khi có</h3>
+    <ul class="checks two">
+      <li><span>1 sản phẩm chạy trên production, có CI/CD, có monitoring</span></li>
+      <li><span>Bộ tài liệu: biên bản lấy yêu cầu, spec, design doc, API docs, tài liệu bàn giao</span></li>
+      <li><span>Buổi demo trước “khách hàng” và hội đồng</span></li>
+      <li><span>Bảo vệ được các quyết định thiết kế: vì sao chọn kiến trúc, kiểu giao tiếp, cách deploy</span></li>
+    </ul></div>
+</div></section>
+</div>
 
 
 <script>
@@ -606,23 +1144,69 @@ td:first-child{font-weight:600;color:var(--navy-900)}
   });
   try{var s=d.getElementById(localStorage.getItem('track')||'');if(s&&tabs.indexOf(s)>-1)select(s)}catch(e){}
 
+  // Router: one page, one view per roadmap path. Shared modules move into the active view's slots.
+  var views=[].slice.call(d.querySelectorAll('.view')),progLinks=[].slice.call(d.querySelectorAll('[data-view]'));
+  var skip=d.querySelector('.skip'),metaDesc=d.querySelector('meta[name=description]');
+  function norm(p){return p.replace(/\/index\.html$/,'/').replace(/\/+$/,'')||'/'}
+  function byPath(p){p=norm(p);for(var i=0;i<views.length;i++)if(views[i].getAttribute('data-path')===p)return views[i];return views[0]}
+  function viewOf(el){while(el&&!(el.classList&&el.classList.contains('view')))el=el.parentNode;return el}
+  var current=null;
+  function show(v){
+    current=v;
+    views.forEach(function(x){x.hidden=x!==v});
+    [].forEach.call(v.querySelectorAll('[data-slot]'),function(slot){
+      var m=d.getElementById(slot.getAttribute('data-slot')); if(!m)return;
+      slot.appendChild(m);
+      var w=m.querySelector('.mod-when'); if(w)w.textContent=slot.getAttribute('data-when')||'';
+    });
+    progLinks.forEach(function(a){if(a.closest('.prog')){if(a.getAttribute('data-view')===v.id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')}});
+    d.title=v.getAttribute('data-title'); metaDesc.setAttribute('content',v.getAttribute('data-desc'));
+    skip.setAttribute('href','#'+v.getAttribute('data-main'));
+  }
+  function toHash(){var t=location.hash&&d.getElementById(decodeURIComponent(location.hash.slice(1)));if(t)t.scrollIntoView()}
+  // A hash that only exists inside another view (e.g. "#chang-1" on "/2-thang") wins over the path,
+  // and the URL is corrected so later back/forward resolves to the same view.
+  function resolve(){
+    var v=byPath(location.pathname),t=location.hash&&d.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var tv=t&&viewOf(t);
+    if(tv&&tv!==v){v=tv;try{history.replaceState(null,'',v.getAttribute('data-path')+location.hash)}catch(err){}}
+    return v;
+  }
+  show(resolve()); toHash();
+  progLinks.forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+      var v=d.getElementById(a.getAttribute('data-view')); if(!v)return;
+      e.preventDefault();
+      try{history.pushState(null,'',v.getAttribute('data-path'))}catch(err){}
+      show(v); window.scrollTo(0,0);
+    });
+  });
+  // In-page anchors also fire popstate; only act when the URL points at another view.
+  window.addEventListener('popstate',function(){
+    var v=resolve(); if(v===current)return;
+    show(v); if(location.hash)toHash(); else window.scrollTo(0,0);
+  });
+
   if(!('IntersectionObserver' in window)){[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')});return}
 
   // Reveal on scroll
   var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
   [].forEach.call(d.querySelectorAll('.reveal'),function(el){ro.observe(el)});
 
-  // Scrollspy for the sticky menu
-  var links={},nav=d.querySelector('.nav-scroll');
-  [].forEach.call(nav.querySelectorAll('a'),function(a){links[a.hash.slice(1)]=a});
-  var so=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(!e.isIntersecting)return;
-    for(var k in links)links[k].removeAttribute('aria-current');
-    var a=links[e.target.id]; if(!a)return;
-    a.setAttribute('aria-current','true');
-    nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.clientWidth/2,behavior:'smooth'});
-  })},{rootMargin:'-45% 0px -50% 0px'});
-  Object.keys(links).forEach(function(id){var el=d.getElementById(id);if(el)so.observe(el)});
+  // Scrollspy for each view's sticky menu
+  [].forEach.call(d.querySelectorAll('.nav-scroll'),function(nav){
+    var links={};
+    [].forEach.call(nav.querySelectorAll('a'),function(a){links[a.hash.slice(1)]=a});
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var a=links[e.target.id]; if(!a)return;
+      for(var k in links)links[k].removeAttribute('aria-current');
+      a.setAttribute('aria-current','true');
+      if(nav.offsetParent)nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.clientWidth/2,behavior:'smooth'});
+    })},{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(links).forEach(function(id){var el=d.getElementById(id);if(el)so.observe(el)});
+  });
 })();
 </script>
 </body>
