@@ -77,6 +77,8 @@
   </div>
 </header>
 
+<div data-slot="gia-tri"></div>
+
 <section id="tong-quan"><div class="wrap">
   <header class="sec-head reveal"><p class="eyebrow">Nguyên tắc thiết kế</p><h2>Học sâu một hướng, dùng công cụ thật từ ngày đầu</h2></header>
   <div class="pillars">
@@ -376,6 +378,8 @@
   </div>
 </header>
 
+<div data-slot="gia-tri"></div>
+
 <section id="k2-tong-quan"><div class="wrap">
   <header class="sec-head reveal"><p class="eyebrow">Tổng quan khoá 2 tháng</p><h2>Học bằng cách làm ra sản phẩm</h2></header>
   <div class="pillars">
@@ -463,6 +467,8 @@
     </div>
   </div>
 </header>
+
+<div data-slot="gia-tri"></div>
 
 <section id="k6-tong-quan"><div class="wrap">
   <header class="sec-head reveal"><p class="eyebrow">Tổng quan · 6 tháng</p><h2>Hai module nối tiếp</h2><p class="sub">Đầu ra của module Nền tảng chính là điều kiện đầu vào của module Thực hành. Đường đỏ là điểm kiểm tra.</p></header>
@@ -566,6 +572,8 @@
     </div>
   </div>
 </header>
+
+<div data-slot="gia-tri"></div>
 
 <section id="k12-tong-quan"><div class="wrap">
   <header class="sec-head reveal"><p class="eyebrow">Tổng quan · 12 tháng</p><h2>Ba module nối tiếp</h2><p class="sub">Đầu ra của module trước là điều kiện đầu vào của module sau. Đường đỏ là điểm kiểm tra giữa các module.</p></header>
@@ -673,10 +681,29 @@
 
 <!-- ===== Module dùng chung: JS chuyển vào view đang hiển thị qua data-slot ===== -->
 <div id="modules">
+<section id="gia-tri" class="band"><div class="wrap">
+  <header class="sec-head reveal"><p class="eyebrow">Giá trị của mọi khoá học</p><h2>Từ giảng đường đến doanh nghiệp</h2><p class="sub">Dù chọn lộ trình nào, học viên đều nhận được hai điều: quen với cách làm việc ở doanh nghiệp, và biến kiến thức đã học thành kỹ năng dùng được trong công việc.</p></header>
+  <div class="grid2">
+    <article class="card value reveal"><span class="n">01</span><h3>Môi trường làm việc như ở doanh nghiệp</h3>
+      <p>Học viên được làm việc theo đúng cách một team phần mềm vận hành, để chuyển từ thói quen học tập sang tác phong làm việc chuyên nghiệp.</p>
+      <ul class="checks">
+        <li><span>Nhận việc qua issue board, làm việc qua branch và pull request</span></li>
+        <li><span>Code được mentor review trước khi merge, như ở một team thật</span></li>
+        <li><span>Mentor vừa là trưởng nhóm vừa đóng vai khách hàng; học viên demo và bảo vệ sản phẩm của mình</span></li>
+      </ul></article>
+    <article class="card value reveal"><span class="n">02</span><h3>Từ kiến thức lý thuyết đến kỹ năng thực hành</h3>
+      <p>Những gì đã học ở trường được dùng ngay trong một sản phẩm chạy thật, để học viên tự tin mang kiến thức đó vào công việc.</p>
+      <ul class="checks">
+        <li><span>Cấu trúc dữ liệu, database, mạng máy tính được áp dụng vào bài toán cụ thể thay vì chỉ học để thi</span></li>
+        <li><span>Mỗi quyết định kỹ thuật phải tự giải thích được: vì sao chọn cách này, đánh đổi điều gì</span></li>
+        <li><span>Kết thúc khoá với sản phẩm và lịch sử Git làm bằng chứng năng lực khi đi phỏng vấn</span></li>
+      </ul></article>
+  </div>
+</div></section>
+
 <div class="card reveal" id="dau-vao-chung"><h3><span class="no">Áp dụng cho cả 3 khoá</span>Điều kiện chung</h3>
   <ul class="checks">
     <li><span><b>Máy tính:</b> laptop RAM tối thiểu 8GB, khuyến nghị 16GB, chạy được Docker; internet ổn định</span></li>
-    <li><span><b>AI:</b> có tài khoản AI coding assistant (Claude, Copilot hoặc tương đương) trước buổi đầu</span></li>
     <li><span><b>Tiếng Anh:</b> đọc được tài liệu kỹ thuật, được phép dùng công cụ dịch</span></li>
     <li><span><b>Thời gian:</b> 5 giờ cùng mentor + 5–8 giờ tự học mỗi tuần. Vắng quá 20% giờ mentor thì không xét hoàn thành khoá</span></li>
   </ul></div>
