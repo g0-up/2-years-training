@@ -20,6 +20,13 @@ Trạng thái: đã triển khai trong `public/index.html` · Cập nhật: 2026
 - Người đã đi làm từ 1 năm trở lên được vào thẳng module C của khoá 12 tháng, nhưng phải qua bài đánh giá đầu vào; số năm kinh nghiệm chỉ là điều kiện để đăng ký đánh giá.
 - Cả 4 lộ trình nằm trong một trang duy nhất (`public/index.html`), mỗi lộ trình có đường dẫn riêng; không tách thành nhiều file trang.
 
+## Giá trị cốt lõi của mọi khoá học
+
+- Tạo môi trường làm việc như ở doanh nghiệp, giúp học viên chuyển từ môi trường học tập sang môi trường làm việc chuyên nghiệp.
+- Chuyển kiến thức lý thuyết thành kỹ năng thực hành, giúp học viên tự tin mang kiến thức đã học ở trường vào công việc.
+
+Trên website, hai giá trị này là một khối dùng chung hiển thị ngay dưới phần mở đầu của cả 4 lộ trình.
+
 ## Contract
 
 **Outcome:** `public/index.html` chứa cả 4 lộ trình (2 năm, 2 tháng, 6 tháng, 12 tháng) cùng phong cách UpNext. Mỗi lộ trình có đường dẫn riêng để chia sẻ; người xem chuyển qua lại bằng thanh chọn lộ trình mà không tải trang khác.
@@ -84,7 +91,6 @@ Kỹ năng giao tiếp trong công việc 15h · Lấy và phân tích yêu cầ
 ### Áp dụng cho cả 3 khoá
 
 - Laptop RAM tối thiểu 8GB (khuyến nghị 16GB) chạy được Docker; kết nối internet ổn định.
-- Có tài khoản AI coding assistant (Claude, Copilot hoặc tương đương) trước buổi đầu.
 - Đọc được tài liệu kỹ thuật tiếng Anh, được phép dùng công cụ dịch.
 - Cam kết thời gian mỗi tuần: 5 giờ cùng mentor + 5–8 giờ tự học. Vắng quá 20% giờ mentor thì không xét hoàn thành khoá.
 
