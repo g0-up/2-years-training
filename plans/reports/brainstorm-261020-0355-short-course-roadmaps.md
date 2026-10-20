@@ -15,6 +15,9 @@ Trạng thái: chờ duyệt · Cập nhật: 2026-10-20 · Nhánh: `claude/grea
 - Ba khoá ngắn xếp chồng theo module, không lặp nội dung.
 - Stack: Golang + ReactJS, không có Mobile.
 - Mỗi khoá có ràng buộc đầu vào riêng.
+- Tỷ lệ 1 mentor : 4–5 học viên; giờ mentor là giờ luyện tập theo nhóm.
+- Message queue dùng Redis.
+- Người đã đi làm từ 1 năm trở lên được vào thẳng module C của khoá 12 tháng, nhưng phải qua bài đánh giá đầu vào; số năm kinh nghiệm chỉ là điều kiện để đăng ký đánh giá.
 - Cả 4 lộ trình nằm trong một trang duy nhất (`public/index.html`), mỗi lộ trình có đường dẫn riêng; không tách thành nhiều file trang.
 
 ## Contract
@@ -25,6 +28,7 @@ Trạng thái: chờ duyệt · Cập nhật: 2026-10-20 · Nhánh: `claude/grea
 - Nội dung lộ trình 2 năm giữ nguyên và vẫn là nội dung mặc định ở `/`.
 - Một file HTML tĩnh, không thêm build tool; tiếng Việt; design token UpNext hiện có; responsive ở chiều rộng điện thoại.
 - Anchor hiện có của trang 2 năm (`#chang-1`...) tiếp tục hoạt động.
+- Nhóm 4–5 học viên trên 1 mentor. Trong 5 giờ mentor mỗi tuần, mỗi học viên có khoảng 1 giờ được review code và hỏi riêng; phần còn lại là làm bài và chữa bài chung.
 - Nhịp chung khoảng 5 giờ mentor mỗi tuần (40h/8 tuần, 120h/26 tuần, 240h/52 tuần).
 
 **Non-goals:** sửa nội dung lộ trình 2 năm; đăng ký, thanh toán, lịch học; hướng Mobile; giáo trình chi tiết từng buổi; tách thành nhiều file trang.
@@ -61,7 +65,7 @@ Học bằng làm: mỗi tuần thêm một kiểu giao tiếp vào cùng một 
 | 1 | Tổ chức dự án: cấu trúc repo BE/FE, branch + pull request, issue board, cấu hình môi trường, thiết lập AI coding assistant và quy tắc dùng |
 | 2 | Giao tiếp đồng bộ: HTTP, REST API CRUD, status code, validation, tài liệu OpenAPI |
 | 3 | Frontend gọi API: React fetch, loading/error state, đăng nhập JWT |
-| 4 | Giao tiếp bất đồng bộ: background job, message queue, xử lý retry |
+| 4 | Giao tiếp bất đồng bộ: background job, message queue bằng Redis (Redis Streams), xử lý retry |
 | 5 | Realtime: WebSocket, so sánh với polling và SSE |
 | 6 | Test + dùng AI viết và review test, Docker Compose cho toàn bộ hệ thống |
 | 7 | Deploy lên môi trường demo |
@@ -120,6 +124,20 @@ Bài kiểm tra đầu vào: giải 2 bài lập trình cơ bản trong 60 phút
 
 Bài kiểm tra đầu vào: như khoá 6 tháng, cộng 15 phút phỏng vấn về động lực và khả năng cam kết thời gian.
 
+#### Vào thẳng module C (dành cho người đã đi làm)
+
+Điều kiện đăng ký: đã đi làm lập trình từ 1 năm trở lên. Kinh nghiệm chỉ cho phép đăng ký đánh giá, không thay thế đánh giá, vì 1 năm đi làm chưa chắc đã có nền tảng tốt. Bài đánh giá kiểm tra đúng đầu ra của module A và module B:
+
+| Phần | Nội dung | Tương ứng |
+|---|---|---|
+| Bài làm tại nhà (4–6 giờ, được dùng AI) | REST API bằng Golang có CRUD + đăng nhập JWT; 1 tác vụ bất đồng bộ qua Redis; 1 màn hình React gọi API; chạy toàn bộ bằng Docker Compose; có test cho phần nghiệp vụ chính | Đầu ra module B |
+| Phỏng vấn kỹ thuật (45–60 phút) | Giải thích code đã nộp và sửa trực tiếp 1 lỗi mentor đưa vào; luồng HTTP request từ browser đến database; khi nào dùng sync, async, WebSocket; index và transaction; DNS, HTTPS, TCP ở mức giải thích được | Đầu ra module A + B |
+
+Kết quả:
+- Đạt cả hai phần: vào thẳng module C (120 giờ, khoảng 6 tháng).
+- Bài làm đạt nhưng phỏng vấn hổng nền tảng: học bù các phần còn thiếu của module A rồi vào module C.
+- Bài làm không đạt: học module B trước, hoặc học khoá 12 tháng từ đầu nếu hổng cả nền tảng.
+
 Điểm chặn giữa khoá:
 - Hết module A: làm bài kiểm tra đầu vào của khoá 2 tháng, như khoá 6 tháng.
 - Hết module B: sản phẩm của module B phải chạy được trên môi trường demo thì mới vào module C.
@@ -146,6 +164,4 @@ Better approaches: none — yêu cầu một trang, nhiều đường dẫn là 
 
 ## Câu hỏi còn mở
 
-- Tỷ lệ mentor/học viên (1:1 hay theo nhóm) ảnh hưởng hình thức luyện tập; mặc định ghi "theo nhóm nhỏ" nếu không có thông tin khác.
-- Message queue dùng công nghệ cụ thể nào (Redis, RabbitMQ, NATS); mặc định đề xuất RabbitMQ.
-- Có cho phép người đã đi làm từ 1 năm trở lên vào thẳng module C của khoá 12 tháng không; hiện tại không cho.
+Không còn.
