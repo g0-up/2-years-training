@@ -1,10 +1,11 @@
 # Brainstorm: bổ sung lộ trình 2 tháng, 6 tháng, 12 tháng
 
-Trạng thái: chờ duyệt · Ngày: 2026-10-20 · Nhánh: `claude/great-carson-1ht8gl`
+Trạng thái: chờ duyệt · Cập nhật: 2026-10-20 · Nhánh: `claude/great-carson-1ht8gl`
 
 ## Bằng chứng hiện trạng
 
-- Repo chỉ có một trang tĩnh `public/index.html` (629 dòng, CSS/JS inline, deploy Vercel) mô tả lộ trình 24 tháng gồm 3 chặng: Cơ bản (T1–8), Nâng cao (T9–17, 1 hướng chính + 1 hướng phụ), Thực hành (T18–24).
+- Repo chỉ có một trang tĩnh `public/index.html` (629 dòng, CSS/JS inline, deploy Vercel với thư mục gốc `public/`) mô tả lộ trình 24 tháng gồm 3 chặng: Cơ bản (T1–8), Nâng cao (T9–17), Thực hành (T18–24).
+- Trang 2 năm đang dùng anchor `#tong-quan`, `#lo-trinh`, `#chang-1`, `#chang-2`, `#chang-3`, `#xuyen-suot` cho mục lục.
 - Lộ trình 2 năm không ghi số giờ; stack là Golang, ReactJS, Flutter.
 
 ## Quyết định đã chốt với người dùng
@@ -13,27 +14,31 @@ Trạng thái: chờ duyệt · Ngày: 2026-10-20 · Nhánh: `claude/great-carso
 - 40/120/240 giờ là giờ luyện tập cùng mentor; trang ghi thêm số giờ tự học khuyến nghị.
 - Ba khoá ngắn xếp chồng theo module, không lặp nội dung.
 - Stack: Golang + ReactJS, không có Mobile.
+- Mỗi khoá có ràng buộc đầu vào riêng.
+- Cả 4 lộ trình nằm trong một trang duy nhất (`public/index.html`), mỗi lộ trình có đường dẫn riêng; không tách thành nhiều file trang.
 
 ## Contract
 
-**Outcome:** Website có thêm 3 trang lộ trình 2 tháng, 6 tháng, 12 tháng cùng phong cách UpNext với trang 2 năm; người xem chuyển qua lại giữa 4 lộ trình và so sánh được đối tượng, thời lượng, nội dung, đầu ra.
+**Outcome:** `public/index.html` chứa cả 4 lộ trình (2 năm, 2 tháng, 6 tháng, 12 tháng) cùng phong cách UpNext. Mỗi lộ trình có đường dẫn riêng để chia sẻ; người xem chuyển qua lại bằng thanh chọn lộ trình mà không tải trang khác.
 
 **Constraints:**
-- Nội dung lộ trình 2 năm giữ nguyên, URL `/` giữ nguyên.
-- Trang tĩnh, không thêm build tool; tiếng Việt; design token UpNext hiện có; responsive ở chiều rộng điện thoại.
+- Nội dung lộ trình 2 năm giữ nguyên và vẫn là nội dung mặc định ở `/`.
+- Một file HTML tĩnh, không thêm build tool; tiếng Việt; design token UpNext hiện có; responsive ở chiều rộng điện thoại.
+- Anchor hiện có của trang 2 năm (`#chang-1`...) tiếp tục hoạt động.
 - Nhịp chung khoảng 5 giờ mentor mỗi tuần (40h/8 tuần, 120h/26 tuần, 240h/52 tuần).
 
-**Non-goals:** sửa nội dung lộ trình 2 năm; đăng ký, thanh toán, lịch học; hướng Mobile; giáo trình chi tiết từng buổi.
+**Non-goals:** sửa nội dung lộ trình 2 năm; đăng ký, thanh toán, lịch học; hướng Mobile; giáo trình chi tiết từng buổi; tách thành nhiều file trang.
 
 **Acceptance criteria:**
-- 3 trang mới truy cập được, mỗi trang có: đối tượng đầu vào, tổng giờ mentor + giờ tự học, phân bổ module theo tuần/tháng, sản phẩm đầu ra, tiêu chí hoàn thành.
+- Mở trực tiếp `/`, `/2-thang`, `/6-thang`, `/12-thang` đều hiển thị đúng lộ trình tương ứng; nút back/forward của trình duyệt chuyển đúng lộ trình.
+- Mỗi lộ trình ngắn có: ràng buộc đầu vào, tổng giờ mentor + giờ tự học, phân bổ module theo tuần/tháng, sản phẩm đầu ra, tiêu chí hoàn thành.
 - Tổng giờ các module khớp đúng 40/120/240.
 - Khoá 2 tháng phủ đủ: tổ chức dự án; sync/async, HTTP, REST API, WebSocket, queue.
 - Khoá 12 tháng phủ đủ: kỹ năng giao tiếp, lấy và phân tích yêu cầu, phân tích thiết kế hệ thống, từ requirements đến deploy production.
-- Trang 2 năm chỉ thay đổi ở thanh chuyển lộ trình (nếu có); nội dung còn lại không đổi.
+- Nội dung phần 2 năm không đổi; anchor cũ vẫn cuộn đúng vị trí.
 - Không có horizontal scroll ở 375px; light/dark đều đọc được.
 
-## Cấu trúc module đề xuất
+## Cấu trúc module
 
 | Module | Giờ mentor | Nằm trong khoá |
 |---|---|---|
@@ -44,6 +49,8 @@ Trạng thái: chờ duyệt · Ngày: 2026-10-20 · Nhánh: `claude/great-carso
 - **Khoá 2 tháng = B (40h).**
 - **Khoá 6 tháng = A (80h) → B (40h).**
 - **Khoá 12 tháng = A (80h) → B (40h) → C (120h).**
+
+Nguyên tắc nối module: **đầu ra của module trước chính là ràng buộc đầu vào của module sau.** Học viên khoá 6 tháng và 12 tháng phải đạt đầu vào của module B sau khi xong module A mới được học tiếp.
 
 ### Module B · Xây dựng sản phẩm với AI (40h, 8 tuần × 5h)
 
@@ -68,25 +75,77 @@ Golang 20h · Database/SQL 15h · Frontend (HTML/CSS/JS, React cơ bản) 15h ·
 
 Kỹ năng giao tiếp trong công việc 15h · Lấy và phân tích yêu cầu khách hàng 25h · Phân tích và thiết kế hệ thống 35h · Deploy & vận hành production (CI/CD, cloud, monitoring, bảo mật cơ bản) 30h · Dự án cuối khoá và trình bày 15h. Dự án cuối khoá đi xuyên suốt module C: bắt đầu bằng buổi lấy yêu cầu với "khách hàng" là mentor, kết thúc bằng sản phẩm chạy trên production.
 
-## Phương án trình bày trên website
+## Ràng buộc đầu vào
 
-| Phương án | Giả định quan trọng nhất | Hỏng đầu tiên khi |
-|---|---|---|
-| **1. Mỗi khoá một trang (`/2-thang/`, `/6-thang/`, `/12-thang/`) + thanh chuyển lộ trình** (khuyến nghị) | Người xem thường chỉ quan tâm một khoá | Cần so sánh nhanh 4 khoá: giải bằng một bảng so sánh ngắn trên mỗi trang mới |
-| 2. Trang hub so sánh ở `/`, chuyển lộ trình 2 năm sang `/2-nam/` | Hub là cửa vào chính | Link cũ đã chia sẻ trỏ vào `/` không còn là lộ trình 2 năm, trái yêu cầu giữ nguyên |
-| 3. Gộp cả 4 lộ trình vào `index.html` dạng tab | Một file dễ quản lý | Trang 2 năm phải tái cấu trúc, file vượt 1.500 dòng, khó bảo trì |
+### Áp dụng cho cả 3 khoá
 
-Đề xuất phương án 1. CSS chung tách ra `public/assets/site.css` để 4 trang dùng chung thay vì chép 4 lần; `index.html` chỉ đổi phần tham chiếu CSS và thêm thanh chuyển lộ trình, nội dung không đổi.
+- Laptop RAM tối thiểu 8GB (khuyến nghị 16GB) chạy được Docker; kết nối internet ổn định.
+- Có tài khoản AI coding assistant (Claude, Copilot hoặc tương đương) trước buổi đầu.
+- Đọc được tài liệu kỹ thuật tiếng Anh, được phép dùng công cụ dịch.
+- Cam kết thời gian mỗi tuần: 5 giờ cùng mentor + 5–8 giờ tự học. Vắng quá 20% giờ mentor thì không xét hoàn thành khoá.
 
-Better approaches: none — hướng xếp chồng module là hướng người dùng đã chọn (rõ ràng theo yêu cầu "12 tháng bao gồm 2 tháng và 6 tháng").
+### Khoá 2 tháng (40h) · đầu vào cao nhất
+
+| Tiêu chí | Mức yêu cầu |
+|---|---|
+| Lập trình | Đã tự viết ít nhất 1 chương trình hoàn chỉnh khoảng 200 dòng trở lên bằng 1 ngôn ngữ bất kỳ; dùng được hàm, struct/class, xử lý lỗi, đọc/ghi file |
+| Golang | Không bắt buộc; nếu chưa biết phải tự học Go Tour trước buổi đầu (khoảng 8–10 giờ) |
+| Database | Viết được SELECT, INSERT, UPDATE, DELETE, JOIN 2 bảng |
+| Web | Đọc hiểu HTML/CSS/JS cơ bản; biết request/response và JSON là gì |
+| Git & terminal | clone, commit, push, tạo branch; điều hướng thư mục và chạy lệnh trong terminal |
+| Đối tượng phù hợp | Fresher, sinh viên năm cuối đã làm đồ án, dev ở mảng khác muốn chuyển sang làm web |
+
+Bài kiểm tra đầu vào: làm tại nhà trong 2–3 giờ một chương trình CLI đọc file JSON, lọc và ghi kết quả ra file, kèm 1 câu SQL có JOIN. Sau đó phỏng vấn 15 phút với mentor để giải thích code đã nộp. Bài nộp do AI sinh ra mà không giải thích được thì không đạt.
+
+### Khoá 6 tháng (120h)
+
+| Tiêu chí | Mức yêu cầu |
+|---|---|
+| Lập trình | Đã học lập trình cơ bản (biến, điều kiện, vòng lặp, hàm, mảng) với 1 ngôn ngữ bất kỳ; giải được bài toán đơn giản không cần xem lời giải |
+| Database, Web, Git | Không bắt buộc, module A sẽ ôn lại |
+| Đối tượng phù hợp | Sinh viên IT từ năm 2, người đã tự học lập trình nền tảng; **không nhận người chưa từng lập trình** |
+
+Bài kiểm tra đầu vào: giải 2 bài lập trình cơ bản trong 60 phút, ngôn ngữ tự chọn, không dùng AI.
+
+Điểm chặn giữa khoá: hết module A (khoảng tháng 4), học viên làm bài kiểm tra đầu vào của khoá 2 tháng. Chưa đạt thì học bù trước khi sang module B.
+
+### Khoá 12 tháng (240h)
+
+| Tiêu chí | Mức yêu cầu |
+|---|---|
+| Lập trình | Như khoá 6 tháng |
+| Giao tiếp | Viết được email/tin nhắn công việc rõ ràng bằng tiếng Việt; sẵn sàng thuyết trình và làm việc trực tiếp với "khách hàng" (mentor đóng vai) |
+| Cam kết | 12 tháng liên tục; giờ tự học ở module C tăng lên khoảng 6–8 giờ/tuần vì phải viết tài liệu yêu cầu và thiết kế |
+| Đối tượng phù hợp | Người muốn đi làm ở vị trí dev có tiếp xúc khách hàng, hoặc hướng tới vai trò lead/BA kỹ thuật về sau |
+
+Bài kiểm tra đầu vào: như khoá 6 tháng, cộng 15 phút phỏng vấn về động lực và khả năng cam kết thời gian.
+
+Điểm chặn giữa khoá:
+- Hết module A: làm bài kiểm tra đầu vào của khoá 2 tháng, như khoá 6 tháng.
+- Hết module B: sản phẩm của module B phải chạy được trên môi trường demo thì mới vào module C.
+
+## Trình bày trên website
+
+Cả 4 lộ trình nằm trong `public/index.html`. Mỗi lộ trình là một khối nội dung; chỉ khối đang chọn được hiển thị.
+
+- Đường dẫn: `/` (2 năm, mặc định), `/2-thang`, `/6-thang`, `/12-thang`. Vercel rewrite cả 3 đường dẫn này về cùng `index.html` (cấu hình trong `public/vercel.json`); JavaScript đọc `location.pathname` để hiện đúng khối, và dùng `history.pushState` khi bấm thanh chọn lộ trình nên không tải lại trang.
+- Anchor cũ của trang 2 năm giữ nguyên tên. Anchor của lộ trình ngắn có tiền tố riêng (ví dụ `#2t-dau-vao`) để không trùng.
+- Thanh chọn lộ trình và một bảng so sánh ngắn 4 lộ trình (đối tượng, thời lượng, giờ mentor, đầu ra) đặt ngay dưới hero.
+
+Trade-offs:
+- Một file chứa 4 lộ trình sẽ dài khoảng 1.300–1.600 dòng, sửa khó hơn so với tách file. Bù lại CSS và JS không bị lặp, và chỉ có một nơi duy nhất cần cập nhật design.
+- Đường dẫn thật (`/2-thang`) phụ thuộc vào rewrite của Vercel. Nếu trang được host ở nơi khác không có rewrite, mở trực tiếp `/2-thang` sẽ báo 404. Nếu cần chạy được ở mọi nơi, dùng hash (`/#2-thang`) thay thế, nhưng khi đó phải xử lý để không xung đột với anchor mục lục hiện có.
+
+Better approaches: none — yêu cầu một trang, nhiều đường dẫn là quyết định của người dùng; rewrite + `pushState` là cách tối thiểu để đường dẫn chia sẻ được mà vẫn giữ một file.
 
 ## Rủi ro
 
-- 80h nền tảng cho 6 mảng chỉ đủ ở mức ôn luyện. Khoá 6 tháng cần yêu cầu đầu vào là đã học lập trình cơ bản (ví dụ sinh viên IT), không nhận người mới hoàn toàn.
-- Khoá 2 tháng dựa nhiều vào AI. Rủi ro là học viên làm ra sản phẩm nhưng không giải thích được code; tiêu chí hoàn thành cần bắt buộc tự giải thích luồng giao tiếp và tự sửa một lỗi do mentor đưa vào.
-- Giờ tự học khuyến nghị đề xuất 5–8 giờ/tuần (tỷ lệ khoảng 1:1 đến 1:1,5 so với giờ mentor). Nếu học viên không có thời gian này, đầu ra của cả 3 khoá đều không đạt.
+- 80h nền tảng cho 6 mảng chỉ đủ ở mức ôn luyện, nên khoá 6 tháng và 12 tháng phải giữ yêu cầu đã học lập trình cơ bản.
+- Khoá 2 tháng dựa nhiều vào AI. Rủi ro là học viên làm ra sản phẩm nhưng không giải thích được code; tiêu chí hoàn thành bắt buộc tự giải thích luồng giao tiếp và tự sửa một lỗi do mentor cố ý đưa vào.
+- Thiếu 5–8 giờ tự học mỗi tuần thì đầu ra của cả 3 khoá đều không đạt; vì vậy cam kết thời gian là một ràng buộc đầu vào chứ không chỉ là khuyến nghị.
 
 ## Câu hỏi còn mở
 
 - Tỷ lệ mentor/học viên (1:1 hay theo nhóm) ảnh hưởng hình thức luyện tập; mặc định ghi "theo nhóm nhỏ" nếu không có thông tin khác.
 - Message queue dùng công nghệ cụ thể nào (Redis, RabbitMQ, NATS); mặc định đề xuất RabbitMQ.
+- Có cho phép người đã đi làm từ 1 năm trở lên vào thẳng module C của khoá 12 tháng không; hiện tại không cho.
