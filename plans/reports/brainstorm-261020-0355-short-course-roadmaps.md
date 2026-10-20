@@ -1,6 +1,6 @@
 # Brainstorm: bổ sung lộ trình 2 tháng, 6 tháng, 12 tháng
 
-Trạng thái: chờ duyệt · Cập nhật: 2026-10-20 · Nhánh: `claude/great-carson-1ht8gl`
+Trạng thái: đã triển khai trong `public/index.html` · Cập nhật: 2026-10-20 · Nhánh: `claude/great-carson-1ht8gl`
 
 ## Bằng chứng hiện trạng
 
