@@ -76,17 +76,24 @@
   var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
   [].forEach.call(d.querySelectorAll('.reveal'),function(el){ro.observe(el)});
 
-  // Scrollspy for each view's sticky menu
-  [].forEach.call(d.querySelectorAll('.nav-scroll'),function(nav){
-    var links={};
-    [].forEach.call(nav.querySelectorAll('a'),function(a){links[a.hash.slice(1)]=a});
-    var so=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(!e.isIntersecting)return;
-      var a=links[e.target.id]; if(!a)return;
-      for(var k in links)links[k].removeAttribute('aria-current');
+  // Scrollspy for each view's sticky menu: the active link is the last target, in menu order, whose top has
+  // passed 40% of the viewport. Works when targets nest (a block inside a section) or are shorter than the screen.
+  var spies=[].map.call(d.querySelectorAll('.nav-scroll'),function(nav){
+    var items=[].map.call(nav.querySelectorAll('a'),function(a){return {a:a,el:d.getElementById(a.hash.slice(1))}}).filter(function(i){return i.el});
+    var active;
+    return function(){
+      if(!nav.offsetParent)return; // menu of a hidden view
+      var line=window.innerHeight*.4,a=null;
+      items.forEach(function(i){if(i.el.getClientRects().length&&i.el.getBoundingClientRect().top<=line)a=i.a});
+      if(a===active)return;
+      active=a;
+      items.forEach(function(i){i.a.removeAttribute('aria-current')});
+      if(!a)return;
       a.setAttribute('aria-current','true');
-      if(nav.offsetParent)nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.clientWidth/2,behavior:'smooth'});
-    })},{rootMargin:'-45% 0px -50% 0px'});
-    Object.keys(links).forEach(function(id){var el=d.getElementById(id);if(el)so.observe(el)});
+      nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.clientWidth/2,behavior:'smooth'});
+    };
   });
+  var spyQueued=false;
+  function spy(){if(spyQueued)return;spyQueued=true;requestAnimationFrame(function(){spyQueued=false;spies.forEach(function(f){f()})})}
+  window.addEventListener('scroll',spy,{passive:true}); window.addEventListener('resize',spy); spy();
 })();
