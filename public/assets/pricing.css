@@ -1,0 +1,21 @@
+/* ===== pricing page: stage cards (.phase) carrying a price; built only from site.css tokens ===== */
+.price-card .top{flex-wrap:wrap;align-items:center}
+/* stage bars deepen with course length, as the 2-year phases do; the highlighted card alone carries the accent */
+.price-card:nth-child(1) .idx{background:var(--navy-300)}
+.price-card:nth-child(2) .idx{background:var(--navy-500)}
+.price-card:nth-child(3) .idx{background:var(--navy-700)}
+.price-card .save{background:var(--surface-blue-50)}
+/* price reads like a hero stat: same size and navy as .stat b */
+.price-card .hrs{font-size:45px;margin-top:2px}
+.price-card .hrs small{font-size:14px}
+.price-card .was{margin-top:-6px;font-size:14px;color:var(--gray-600)}
+.price-card .was s{text-decoration-thickness:1.5px}
+/* highlighted card: same navy treatment as .perk-plus */
+.price-card.best{background:var(--gradient-navy);color:var(--surface-blue-100)}
+.price-card.best .idx{background:var(--gradient-accent)}
+.price-card.best h3,.price-card.best .hrs,.price-card.best .gate b{color:#fff}
+.price-card.best .out,.price-card.best .gate,.price-card.best .was,.price-card.best .hrs small{color:var(--surface-blue-100)}
+.price-card.best .gate{border-top-color:rgba(255,255,255,.2)}
+.price-card.best .tag{background:var(--surface-0);color:var(--navy-700)}
+.price-card.best .save{background:var(--gradient-accent);color:#fff}
+.price-card.best :focus-visible{outline-color:var(--surface-0)}

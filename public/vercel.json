@@ -3,6 +3,17 @@
   "rewrites": [
     { "source": "/2-thang", "destination": "/index.html" },
     { "source": "/6-thang", "destination": "/index.html" },
-    { "source": "/12-thang", "destination": "/index.html" }
+    { "source": "/12-thang", "destination": "/index.html" },
+    { "source": "/hoc-phi-530f586a", "destination": "/hoc-phi-530f586a.html" }
+  ],
+  "headers": [
+    {
+      "source": "/hoc-phi-530f586a(.html)?",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Cache-Control", "value": "private, no-store" }
+      ]
+    }
   ]
 }
