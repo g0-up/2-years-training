@@ -24,7 +24,9 @@
   try{var s=d.getElementById(localStorage.getItem('track')||'');if(s&&tabs.indexOf(s)>-1)select(s)}catch(e){}
 
   // Router: one page, one view per roadmap path. Shared modules move into the active view's slots.
+  // Standalone pages (no .view) skip routing and keep only the shared behaviour below.
   var views=[].slice.call(d.querySelectorAll('.view')),progLinks=[].slice.call(d.querySelectorAll('[data-view]'));
+  if(views.length){
   var skip=d.querySelector('.skip'),metaDesc=d.querySelector('meta[name=description]');
   function norm(p){return p.replace(/\/index\.html$/,'/').replace(/\/+$/,'')||'/'}
   function byPath(p){p=norm(p);for(var i=0;i<views.length;i++)if(views[i].getAttribute('data-path')===p)return views[i];return views[0]}
@@ -66,6 +68,7 @@
     var v=resolve(); if(v===current)return;
     show(v); if(location.hash)toHash(); else window.scrollTo(0,0);
   });
+  }
 
   if(!('IntersectionObserver' in window)){[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')});return}
 
