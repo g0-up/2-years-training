@@ -13,6 +13,8 @@
   --font-sans:"Inter Tight",system-ui,sans-serif; --font-display:Manrope,"Inter Tight",sans-serif; --font-ui:Roboto,Arial,sans-serif;
   /* derived: mid-navy for stage 2 bars, between navy-700 and surface-blue-100 */
   --navy-500:#3d5a8a; --navy-300:#8aa4c8;
+  /* derived: crimson darkened to 4.5:1+ on white, for form error text */
+  --danger-700:#b3123c; --danger-50:#fdecef;
   --nav-h:55px;
   color-scheme:light;
 }
@@ -225,10 +227,6 @@ td:first-child{font-weight:600;color:var(--navy-900)}
 .pattern .k{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600;color:var(--accent-crimson)}
 .pattern p{font-size:15px;line-height:1.6}
 .pattern p b{color:var(--navy-900)}
-.step{display:grid;gap:10px;align-content:start;padding:28px var(--space-5)}
-.step .n{font-size:40px;line-height:1;font-weight:600;color:var(--navy-900);font-variant-numeric:tabular-nums}
-.step:last-child .n{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;color:transparent}
-.step p{font-size:15px;line-height:1.6}
 td a{color:var(--navy-700);font-weight:600}
 /* value section: white panel lifted over the hero, framed as "from -> to" shifts */
 .value-sec{padding-top:0;background:var(--surface-blue-50)}
@@ -261,6 +259,29 @@ td a{color:var(--navy-700);font-weight:600}
 .shift-arrow{width:40px;height:16px;align-self:center}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sub-h{font-size:16px;line-height:1.4;font-weight:600;color:var(--navy-900);margin:22px 0 10px}
+
+/* ===== sign-up form (#dang-ky): white panel with the accent top bar, as .value-panel ===== */
+.reg{position:relative;max-width:760px;margin:0 auto;background:var(--surface-0);box-shadow:var(--shadow-float);padding:40px 44px 36px}
+.reg::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--gradient-accent)}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
+.field{display:grid;gap:6px;align-content:start}
+.field.full{grid-column:1/-1}
+.field label{font-size:14px;line-height:1.4;font-weight:600;color:var(--navy-900)}
+.field label small{font-size:13px;font-weight:400;color:var(--gray-600)}
+.field input,.field select{width:100%;min-height:48px;margin:0;padding:10px 14px;font-family:inherit;font-size:16px;line-height:1.4;letter-spacing:normal;color:var(--gray-800);background-color:var(--surface-0);border:1px solid var(--gray-300);border-radius:var(--radius-sm);transition:border-color .2s}
+.field select{appearance:none;-webkit-appearance:none;padding-right:40px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23233c65' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px}
+.field input:hover,.field select:hover{border-color:var(--navy-300)}
+.field input:focus,.field select:focus{border-color:var(--navy-700)}
+.field [aria-invalid="true"]{border-color:var(--danger-700)}
+.field-err{font-size:14px;line-height:1.4;color:var(--danger-700)}
+.field-err:empty{display:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reg-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;margin-top:28px;padding-top:24px;border-top:1px solid var(--surface-blue-100)}
+.reg-consent{font-size:14px;line-height:1.5;color:var(--gray-600);max-width:46ch}
+.reg .btn[disabled]{opacity:.7;cursor:progress}
+.reg-status{margin-top:20px}
+.reg-status:empty{display:none}
+.reg-status.err{background:var(--danger-50);color:var(--danger-700)}
 
 /* reveal (progressive: only hidden when JS + motion allowed) */
 @media (prefers-reduced-motion:no-preference){
@@ -319,6 +340,8 @@ td a{color:var(--navy-700);font-weight:600}
   .btn{width:100%}
   .hero-cta{flex-direction:column}
   .btn-outline{display:none}
+  .reg{padding:32px 18px 28px}
+  .reg-grid{grid-template-columns:1fr}
   /* tables become stacked cards */
   .tbl{background:transparent;box-shadow:none}
   table,tbody,tr,td{display:block}
