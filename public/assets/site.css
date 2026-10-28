@@ -227,10 +227,6 @@ td:first-child{font-weight:600;color:var(--navy-900)}
 .pattern .k{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600;color:var(--accent-crimson)}
 .pattern p{font-size:15px;line-height:1.6}
 .pattern p b{color:var(--navy-900)}
-.step{display:grid;gap:10px;align-content:start;padding:28px var(--space-5)}
-.step .n{font-size:40px;line-height:1;font-weight:600;color:var(--navy-900);font-variant-numeric:tabular-nums}
-.step:last-child .n{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;color:transparent}
-.step p{font-size:15px;line-height:1.6}
 td a{color:var(--navy-700);font-weight:600}
 /* value section: white panel lifted over the hero, framed as "from -> to" shifts */
 .value-sec{padding-top:0;background:var(--surface-blue-50)}
