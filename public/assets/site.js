@@ -27,7 +27,7 @@
   // Standalone pages (no .view) skip routing and keep only the shared behaviour below.
   var views=[].slice.call(d.querySelectorAll('.view')),progLinks=[].slice.call(d.querySelectorAll('[data-view]'));
   if(views.length){
-  var skip=d.querySelector('.skip'),metaDesc=d.querySelector('meta[name=description]');
+  var skip=d.querySelector('.skip'),metaDesc=d.querySelector('meta[name=description]'),pick=d.getElementById('dk-lo-trinh');
   function norm(p){return p.replace(/\/index\.html$/,'/').replace(/\/+$/,'')||'/'}
   function byPath(p){p=norm(p);for(var i=0;i<views.length;i++)if(views[i].getAttribute('data-path')===p)return views[i];return views[0]}
   function viewOf(el){while(el&&!(el.classList&&el.classList.contains('view')))el=el.parentNode;return el}
@@ -43,6 +43,8 @@
     progLinks.forEach(function(a){if(a.closest('.prog')){if(a.getAttribute('data-view')===v.id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')}});
     d.title=v.getAttribute('data-title'); metaDesc.setAttribute('content',v.getAttribute('data-desc'));
     skip.setAttribute('href','#'+v.getAttribute('data-main'));
+    // the sign-up form suggests the route being viewed until the visitor picks one
+    if(pick&&!pick.hasAttribute('data-touched'))pick.value=v.getAttribute('data-route')||'';
   }
   function toHash(){var t=location.hash&&d.getElementById(decodeURIComponent(location.hash.slice(1)));if(t)t.scrollIntoView()}
   // A hash that only exists inside another view (e.g. "#chang-1" on "/2-thang") wins over the path,
@@ -68,6 +70,46 @@
     var v=resolve(); if(v===current)return;
     show(v); if(location.hash)toHash(); else window.scrollTo(0,0);
   });
+  }
+
+  // Sign-up form: posts to the Google Apps Script web app in its action. The reply is opaque (no-cors), so the page
+  // can only confirm the request was sent; the script validates every field again. Without fetch, the form posts natively.
+  var reg=d.getElementById('dang-ky-form');
+  if(reg&&window.fetch&&window.URLSearchParams&&window.FormData){
+    reg.noValidate=true;
+    var regStatus=d.getElementById('dk-status'),regBtn=reg.querySelector('[type=submit]'),regLabel=regBtn.textContent;
+    var SENT='Đã nhận thông tin của bạn. UpNext sẽ liên hệ qua số điện thoại bạn vừa để lại.',
+        FAILED='Chưa gửi được, có thể do mạng không ổn định. Bạn thử gửi lại sau ít phút nhé.';
+    var rules={
+      ten:function(v){return v.trim().length>=2||'Nhập họ tên của bạn.'},
+      sdt:function(v){return /^(0|\+?84)[35789]\d{8}$/.test(v.replace(/[\s.()-]/g,''))||'Số điện thoại chưa đúng, ví dụ 0912 345 678.'},
+      email:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())||'Email chưa đúng, ví dụ ten@gmail.com.'}
+    };
+    var fields=Object.keys(rules).map(function(n){return reg.elements[n]});
+    function check(f){
+      var r=rules[f.name](f.value);
+      d.getElementById(f.id+'-err').textContent=r===true?'':r;
+      if(r===true)f.removeAttribute('aria-invalid');else f.setAttribute('aria-invalid','true');
+      return r===true;
+    }
+    function say(msg,failed){regStatus.textContent=msg;regStatus.classList.toggle('err',!!failed)}
+    function sent(){fields.forEach(function(f){f.value=''});say(SENT)}
+    fields.forEach(function(f){f.addEventListener('input',function(){if(f.hasAttribute('aria-invalid'))check(f)})});
+    reg.elements.lo_trinh.addEventListener('change',function(){this.setAttribute('data-touched','')});
+    reg.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(regBtn.disabled)return;
+      var bad=fields.filter(function(f){return !check(f)});
+      if(bad.length){say('');bad[0].focus();return}
+      if(reg.elements.website.value){sent();return} // only bots fill the hidden field: drop it, look normal
+      var url=reg.getAttribute('action');
+      if(!url){console.warn('dang-ky-form: action is empty, paste the Apps Script web app URL');say(FAILED,true);return}
+      reg.elements.trang.value=location.pathname;
+      regBtn.disabled=true;regBtn.textContent='Đang gửi…';say('');
+      fetch(url,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(reg))})
+        .then(sent,function(){say(FAILED,true)})
+        .then(function(){regBtn.disabled=false;regBtn.textContent=regLabel});
+    });
   }
 
   if(!('IntersectionObserver' in window)){[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')});return}
